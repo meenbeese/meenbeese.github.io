@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
+        <!-- HTML metadata  -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Meenbeese Personal Website</title>
@@ -12,6 +13,7 @@
             <div class="navbar">
                 <img src="assets/blue_profile_pic.png" class="logo">
                 <ul>
+                    <!-- Tabs navigation  -->
                     <li><a href="#home">Home</a></li>
                     <li><a href="#works">Works</a></li>
                     <li><a href="#skills">Skills</a></li>
@@ -20,30 +22,60 @@
                 </ul>
             </div>
 
-            <div class="content">
+            <div class="title">
                 <h1 style="font-family:verdana;">Hi, I'm Meenbeese!</h1>
                 <p>Student and wannabe developer based in Canada.</p>
                 <div>
+                    <!-- Tabs buttons  -->
                     <button type="button"><span></span>GitHub</button>
                     <button type="button"><span></span>GitLab</button>
                 </div>
             </div>
         </div>
 
-        <div id="home" style="height:1000px; width:1000px;">home
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint aperiam incidunt debitis impedit aliquid, dolorum harum dignissimos voluptates eaque sit rem praesentium! Voluptatibus illo dolore, veritatis voluptates totam quos asperiores?</p>
-        </div>
-        <div id="works" style="height:1000px; width:1000px;">works
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint aperiam incidunt debitis impedit aliquid, dolorum harum dignissimos voluptates eaque sit rem praesentium! Voluptatibus illo dolore, veritatis voluptates totam quos asperiores?</p>
-        </div>
-        <div id="skills" style="height:1000px; width:1000px;">skills
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint aperiam incidunt debitis impedit aliquid, dolorum harum dignissimos voluptates eaque sit rem praesentium! Voluptatibus illo dolore, veritatis voluptates totam quos asperiores?</p>
-        </div>
-        <div id="contact" style="height:1000px; width:1000px;">contact
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint aperiam incidunt debitis impedit aliquid, dolorum harum dignissimos voluptates eaque sit rem praesentium! Voluptatibus illo dolore, veritatis voluptates totam quos asperiores?</p>
-        </div>
-        <div id="about" style="height:1000px; width:1000px;">about
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint aperiam incidunt debitis impedit aliquid, dolorum harum dignissimos voluptates eaque sit rem praesentium! Voluptatibus illo dolore, veritatis voluptates totam quos asperiores?</p>
+        <div class="content">
+            <!-- Tabs content  -->
+            <div class="homepage">
+                <div id="home" style="height:750px; width:750px;">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+
+            <div class="workspage">
+                <div id="works" style="height:750px; width:750px;">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+
+            <div class="skillspage">
+                <div id="skills" style="height:750px; width:750px;">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+
+            <div class="contactpage">
+                <div id="contact" style="height:750px; width:750px;">
+                    <form action="#">
+                        <label for="firstName">First name:</label><br>
+                        <input type="text" name="firstName" value="John"><br>
+                        <label for="lastName">Last name:</label><br>
+                        <input type="text" name="lastName" value="Doe"><br>
+                        <label for="email">Email:</label><br>
+                        <input type="email" name="email" value="example@example.com"><br>
+                        <label for="company">Company:</label><br>
+                        <input type="text" name="company" value="XYZ Co."><br>
+                        <label for="message">Message:</label><br>
+                        <textarea name="message"></textarea><br>
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+
+            <div class="aboutpage">
+                <div id="about" style="height:750px; width:750px;">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
         </div>
     </body>
 </html>
