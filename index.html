@@ -1,81 +1,299 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <!-- HTML metadata  -->
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Meenbeese Personal Website</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Portfolio</title>
         <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="mediaqueries.css">
+        <link rel="icon" text="image/x-icon" href="./assets/favicon.ico">
     </head>
     <body>
-        <div class="banner">
-            <div class="navbar">
-                <img src="assets/blue_profile_pic.png" class="logo">
-                <ul>
-                    <!-- Tabs navigation  -->
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#works">Works</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#contact">Contact</a></li>
+        <nav id="desktop-nav">
+            <div class="logo">Meenbeese</div>
+            <div>
+                <ul class="nav-links">
                     <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
-
-            <div class="title">
-                <h1 style="font-family:verdana;">Hi, I'm Meenbeese!</h1>
-                <p>Student and wannabe developer based in Canada.</p>
-                <div>
-                    <!-- Tabs buttons  -->
-                    <button type="button"><span></span>GitHub</button>
-                    <button type="button"><span></span>GitLab</button>
+        </nav>
+        <nav id="hamburger-nav">
+            <div class="logo">Meenbeese</div>
+            <div class="hamburger-menu">
+                <div class="hamburger-icon" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="menu-links">
+                    <li><a href="#about" onclick="toggleMenu()">About</a></li>
+                    <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+                    <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+                    <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
                 </div>
             </div>
-        </div>
-
-        <div class="content">
-            <!-- Tabs content  -->
-            <div class="homepage">
-                <div id="home" style="height:750px; width:750px;">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </nav>
+        <section id="profile">
+            <div class="section__pic-container">
+                <img src="./assets/profile-pic.png" alt="Meenbeese profile picture">
+            </div>
+            <div class="section__text">
+                <p class="section__text__p1">Hello, I'm</p>
+                <h1 class="title">Meenbeese</h1>
+                <p class="section__text__p2">Android Developer</p>
+                <div class="btn-container">
+                    <button class="btn btn-color-2" onclick="window.open('./assets/resume-example.pdf')">Download CV</button>
+                    <button class="btn btn-color-1" onclick="location.href='./#contact'">Contact Info</button>
+                </div>
+                <div id="socials-container">
+                    <img src="./assets/linkedin.png" alt="My LinkedIn profile" 
+                    class="icon" onclick="location.href='https://linkedin.com/'">
+                    <img src="./assets/github.png" alt="My GitHub profile" 
+                    class="icon" onclick="location.href='https://github.com/'">
                 </div>
             </div>
-
-            <div class="workspage">
-                <div id="works" style="height:750px; width:750px;">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </section>
+        <section id="about">
+            <p class="section__text__p1">Get To Know More</p>
+            <h1 class="title">About Me</h1>
+            <div class="section-container">
+                <div class="section__pic-container">
+                    <img src="./assets/about-pic.png" alt="Profile picture"
+                    class="about-pic">
+                </div>
+                <div class="about-details-container">
+                    <div class="about-containers">
+                        <div class="details-container">
+                            <img src="./assets/experience.png" alt="Experience icon"
+                            class="icon">
+                            <h3>Experience</h3>
+                            <p>2+ years <br/>Android Development</p>
+                        </div>
+                        <div class="details-container">
+                            <img src="./assets/education.png" alt="Education icon"
+                            class="icon">
+                            <h3>Education</h3>
+                            <p>B.Sc. Bachelors Degree <br/>M.Sc. Masters Degree</p>
+                        </div>
+                    </div>
+                    <div class="text-container">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error alias ad fugiat sit pariatur quia doloribus, eveniet repellat eum sint! Maxime quasi maiores expedita blanditiis, ex ipsum dolorem nisi modi, pariatur unde, sequi rerum fugiat veniam laudantium numquam voluptatum? Incidunt tempore alias culpa temporibus ab amet accusantium dignissimos.</p>
+                    </div>
                 </div>
             </div>
-
-            <div class="skillspage">
-                <div id="skills" style="height:750px; width:750px;">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+            <img src="./assets/arrow.png" alt="Arrow icon"
+            class="icon arrow" onclick="location.href='./#experience'">
+        </section>
+        <section id="experience">
+            <p class="section__text__p1">Explore My</p>
+            <h1 class="title">Experience</h1>
+            <div class="experience-details-container">
+              <div class="about-containers">
+                <div class="details-container">
+                  <h2 class="experience-sub-title">Frontend Development</h2>
+                  <div class="article-container">
+                    <article>
+                      <img src="./assets/checkmark.png" alt="Experience icon"
+                      class="icon"/>
+                      <div>
+                        <h3>HTML</h3>
+                        <p>Experienced</p>
+                      </div>
+                    </article>
+                    <article>
+                      <img src="./assets/checkmark.png" alt="Experience icon"
+                      class="icon"/>
+                      <div>
+                        <h3>CSS</h3>
+                        <p>Experienced</p>
+                      </div>
+                    </article>
+                    <article>
+                      <img src="./assets/checkmark.png" alt="Experience icon"
+                      class="icon"/>
+                      <div>
+                        <h3>SASS</h3>
+                        <p>Intermediate</p>
+                      </div>
+                    </article>
+                    <article>
+                      <img src="./assets/checkmark.png" alt="Experience icon"
+                      class="icon"/>
+                      <div>
+                        <h3>JavaScript</h3>
+                        <p>Basic</p>
+                      </div>
+                    </article>
+                    <article>
+                      <img src="./assets/checkmark.png" alt="Experience icon"
+                      class="icon"/>
+                      <div>
+                        <h3>TypeScript</h3>
+                        <p>Basic</p>
+                      </div>
+                    </article>
+                    <article>
+                      <img src="./assets/checkmark.png" alt="Experience icon"
+                      class="icon"/>
+                      <div>
+                        <h3>Material UI</h3>
+                        <p>Intermediate</p>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+                <div class="details-container">
+                  <h2 class="experience-sub-title">Backend Development</h2>
+                  <div class="article-container">
+                    <article>
+                      <img src="./assets/checkmark.png" alt="Experience icon"
+                      class="icon"/>
+                      <div>
+                        <h3>PostgreSQL</h3>
+                        <p>Basic</p>
+                      </div>
+                    </article>
+                    <article>
+                      <img src="./assets/checkmark.png" alt="Experience icon"
+                      class="icon"/>
+                      <div>
+                        <h3>Node JS</h3>
+                        <p>Experienced</p>
+                      </div>
+                    </article>
+                    <article>
+                      <img src="./assets/checkmark.png" alt="Experience icon"
+                      class="icon"/>
+                      <div>
+                        <h3>Express JS</h3>
+                        <p>Intermediate</p>
+                      </div>
+                    </article>
+                    <article>
+                      <img src="./assets/checkmark.png" alt="Experience icon"
+                      class="icon"/>
+                      <div>
+                        <h3>Svelte</h3>
+                        <p>Intermediate</p>
+                      </div>
+                    </article>
+                    <article>
+                      <img src="./assets/checkmark.png" alt="Experience icon"
+                      class="icon"/>
+                      <div>
+                        <h3>Docker</h3>
+                        <p>Experienced</p>
+                      </div>
+                    </article>
+                    <article>
+                      <img src="./assets/checkmark.png" alt="Experience icon"
+                      class="icon"/>
+                      <div>
+                        <h3>Git</h3>
+                        <p>Experienced</p>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <img src="./assets/arrow.png" alt="Arrow icon"
+            class="icon arrow" onclick="location.href='./#projects'"/>
+        </section>
+        <section id="projects">
+            <p class="section__text__p1">Browse My Recent</p>
+            <h1 class="title">Projects</h1>
+            <div class="experience-details-container">
+                <div class="about-containers">
+                    <div class="details-container color-container">
+                        <div class="article-container">
+                            <img src="./assets/project-1.png" alt="project 1"
+                            class="project-img">
+                        </div>
+                        <h2 class="experience-sub-title project-title">Project One</h2>
+                        <div class="btn-container">
+                            <button class="btn btn-color-2 project-btn"
+                            onclick="location.href='https://github.com/'">
+                                GitHub
+                            </button>
+                            <button class="btn btn-color-2 project-btn"
+                            onclick="location.href='https://github.com/'">
+                                Live Demo
+                            </button>
+                        </div>
+                    </div>
+                    <div class="details-container color-container">
+                        <div class="article-container">
+                            <img src="./assets/project-2.png" alt="project 2"
+                            class="project-img">
+                        </div>
+                        <h2 class="experience-sub-title project-title">Project Two</h2>
+                        <div class="btn-container">
+                            <button class="btn btn-color-2 project-btn"
+                            onclick="location.href='https://github.com/'">
+                                GitHub
+                            </button>
+                            <button class="btn btn-color-2 project-btn"
+                            onclick="location.href='https://github.com/'">
+                                Live Demo
+                            </button>
+                        </div>
+                    </div>
+                    <div class="details-container color-container">
+                        <div class="article-container">
+                            <img src="./assets/project-3.png" alt="project 3"
+                            class="project-img">
+                        </div>
+                        <h2 class="experience-sub-title project-title">Project Three</h2>
+                        <div class="btn-container">
+                            <button class="btn btn-color-2 project-btn"
+                            onclick="location.href='https://github.com/'">
+                                GitHub
+                            </button>
+                            <button class="btn btn-color-2 project-btn"
+                            onclick="location.href='https://github.com/'">
+                                Live Demo
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="contactpage">
-                <div id="contact" style="height:750px; width:750px;">
-                    <form action="#">
-                        <label for="firstName">First name:</label><br>
-                        <input type="text" name="firstName" value="John"><br>
-                        <label for="lastName">Last name:</label><br>
-                        <input type="text" name="lastName" value="Doe"><br>
-                        <label for="email">Email:</label><br>
-                        <input type="email" name="email" value="example@example.com"><br>
-                        <label for="company">Company:</label><br>
-                        <input type="text" name="company" value="XYZ Co."><br>
-                        <label for="message">Message:</label><br>
-                        <textarea name="message"></textarea><br>
-                        <input type="submit" value="Submit">
-                    </form>
+            <img src="./assets/arrow.png" alt="Arrow icon"
+            class="icon arrow" onclick="location.href='./#contact'"/>
+        </section>
+        <section id="contact">
+            <p class="section__text__p1">Get in Touch</p>
+            <h1 class="title">Contact Me</h1>
+            <div class="contact-info-upper-container">
+                <div class="contact-info-container">
+                    <img src="./assets/email.png" alt="Email icon"
+                    class="icon contact-icon email-icon">
+                    <p><a href="mailto:meenbeese@tutanota.com">meenbeese@tutanota.com</a></p>
+                </div>
+                <div class="contact-info-container">
+                    <img src="./assets/linkedin.png" alt="LinkedIn icon"
+                    class="icon contact-icon">
+                    <p><a href="https://linkedin.com/">LinkedIn</a></p>
                 </div>
             </div>
-
-            <div class="aboutpage">
-                <div id="about" style="height:750px; width:750px;">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </section>
+        <footer>
+            <nav>
+                <div class="nav-links-container">
+                    <ul class="nav-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
                 </div>
-            </div>
-        </div>
+            </nav>
+            <p>Copyright &#169; 2023 Meenbeese. All Rights Reserved.</p>
+        </footer>
+        <script src="script.js"></script>
     </body>
 </html>
