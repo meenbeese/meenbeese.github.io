@@ -1,4 +1,5 @@
-### My personal website, created using vanilla HTML-CSS and minimal JS.
-Located at https://kuzey.is-a.dev
+### My personal website, built with ReactJS, ThreeJS and TailwindCSS.
 
-<p>Copyright &#169; 2025 Kuzey Bilgin. All Rights Reserved.</p>
+Located at <https://kuzey.is-a.dev>.
+
+Copyright &#169; 2025 Kuzey Bilgin. All Rights Reserved.
