@@ -1,7 +1,5 @@
 import adapter from '@sveltejs/adapter-static';
 
-const dev = process.env.NODE_ENV === 'development';
-
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
     compilerOptions: {
@@ -14,10 +12,12 @@ const config = {
         // If your environment is not supported, or you settled on a specific environment, switch out the adapter.
         // See https://svelte.dev/docs/kit/adapters for more information about adapters.
         adapter: adapter({
-            fallback: 'index.html'
+            pages: 'docs',
+            assets: 'docs',
+            strict: false,
         }),
         paths: {
-            base: dev ? '' : '/meenbeese.github.io',
+            base: '',
         }
     },
 };
