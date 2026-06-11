@@ -14,11 +14,12 @@ const config = {
         adapter: adapter({
             pages: 'docs',
             assets: 'docs',
-            strict: false,
+            fallback: 'index.html',
         }),
-        paths: {
-            base: '',
-        }
+		paths: {
+			base: '',
+			assets: '',
+		},
     },
 };
 
