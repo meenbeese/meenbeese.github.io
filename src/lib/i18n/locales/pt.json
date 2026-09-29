@@ -1,0 +1,49 @@
+{
+    "nav": {
+        "about": "Sobre",
+        "experience": "Experiência",
+        "projects": "Projetos",
+        "contact": "Contato"
+    },
+    "profile": {
+        "greeting": "Olá, eu sou",
+        "name": "Kuzey",
+        "role": "Desenvolvedor Fullstack",
+        "downloadCv": "Baixar Currículo",
+        "contactInfo": "Informações de contato"
+    },
+    "sections": {
+        "about": "Sobre mim",
+        "experience": "Experiência",
+        "education": "Formação",
+        "projects": "Projetos",
+        "contact": "Fale comigo"
+    },
+    "about": {
+        "description": "Estudo Matemática como curso principal e Ciência da Computação como segunda área, e moro em Toronto. O que mais me atrai é justamente onde os dois campos se cruzam — a criptografia, a teoria dos grafos e a teoria da informação — e gosto de transformar essa teoria em coisas que as pessoas realmente consigam usar. Fora das aulas, desenvolvo aplicações web, contribuo para projetos de código aberto e exploro a IA."
+    },
+    "experience": {
+        "frontend": "Desenvolvimento Frontend",
+        "backend": "Desenvolvimento Backend",
+        "years": "Mais de 2 anos em desenvolvimento frontend",
+        "degree": "Bacharelado em Matemática, minor em Ciência da Computação"
+    },
+    "contact": {
+        "email": "E-mail",
+        "emailMe": "Envie-me um e-mail",
+        "linkedin": "LinkedIn",
+        "myLinkedin": "Meu LinkedIn"
+    },
+    "levels": {
+        "proficient": "Avançado",
+        "comfortable": "Intermediário",
+        "familiar": "Básico"
+    },
+    "projects": {
+        "one": "Projeto Um",
+        "two": "Projeto Dois",
+        "three": "Projeto Três",
+        "live": "No ar"
+    },
+    "footer": { "rights": "© 2026 Kuzey Bilgin. Todos os direitos reservados." }
+}

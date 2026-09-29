@@ -1,0 +1,49 @@
+{
+    "nav": {
+        "about": "概要",
+        "experience": "経歴",
+        "projects": "プロジェクト",
+        "contact": "お問い合わせ"
+    },
+    "profile": {
+        "greeting": "こんにちは、私は",
+        "name": "Kuzey",
+        "role": "フルスタック開発者",
+        "downloadCv": "履歴書をダウンロード",
+        "contactInfo": "連絡先"
+    },
+    "sections": {
+        "about": "私について",
+        "experience": "職歴",
+        "education": "学歴",
+        "projects": "プロジェクト",
+        "contact": "联系我"
+    },
+    "about": {
+        "description": "トロントを拠点に、数学を主専攻、計算機科学を副専攻としています。とくに惹かれるのは、暗号理論・グラフ理論・情報理論のように、二つの分野が重なり合う領域です。授業の合間にはWebアプリケーションを開発し、オープンソースに貢献し、AIについても探究しています。"
+    },
+    "experience": {
+        "frontend": "フロントエンド開発",
+        "backend": "バックエンド開発",
+        "years": "フロントエンド開発 2年以上",
+        "degree": "数学学士（計算機科学を副専攻）"
+    },
+    "contact": {
+        "email": "メール",
+        "emailMe": "メールを送る",
+        "linkedin": "LinkedIn",
+        "myLinkedin": "LinkedInプロフィール"
+    },
+    "levels": {
+        "proficient": "熟練",
+        "comfortable": "得意",
+        "familiar": "基礎的"
+    },
+    "projects": {
+        "one": "プロジェクト一",
+        "two": "プロジェクト二",
+        "three": "プロジェクト三",
+        "live": "デモ"
+    },
+    "footer": { "rights": "© 2026 Kuzey Bilgin. All rights reserved." }
+}

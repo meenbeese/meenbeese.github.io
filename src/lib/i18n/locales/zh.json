@@ -1,0 +1,49 @@
+{
+    "nav": {
+        "about": "关于",
+        "experience": "经历",
+        "projects": "项目",
+        "contact": "联系"
+    },
+    "profile": {
+        "greeting": "你好，我是",
+        "name": "Kuzey",
+        "role": "全栈开发者",
+        "downloadCv": "下载简历",
+        "contactInfo": "联系方式"
+    },
+    "sections": {
+        "about": "关于我",
+        "experience": "工作经历",
+        "education": "教育背景",
+        "projects": "项目",
+        "contact": "联系我"
+    },
+    "about": {
+        "description": "我常驻多伦多，主修数学，辅修计算机科学。尤其吸引我的是这两个领域的交汇之处——密码学、图论和信息论——我喜欢把那些理论变成人们真正用得上的东西。除了课程之外，我开发网页应用、参与开源项目，也探索人工智能。"
+    },
+    "experience": {
+        "frontend": "前端开发",
+        "backend": "后端开发",
+        "years": "两年以上前端开发经验",
+        "degree": "数学学士，辅修计算机科学"
+    },
+    "contact": {
+        "email": "邮箱",
+        "emailMe": "给我发邮件",
+        "linkedin": "LinkedIn",
+        "myLinkedin": "我的 LinkedIn"
+    },
+    "levels": {
+        "proficient": "精通",
+        "comfortable": "熟练",
+        "familiar": "了解"
+    },
+    "projects": {
+        "one": "项目一",
+        "two": "项目二",
+        "three": "项目三",
+        "live": "在线演示"
+    },
+    "footer": { "rights": "© 2026 Kuzey Bilgin. 保留所有权利。" }
+}

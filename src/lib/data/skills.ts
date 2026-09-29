@@ -1,15 +1,19 @@
 export const frontendSkills = [
-    { name: 'HTML', levelKey: 'levels.experienced' },
-    { name: 'CSS', levelKey: 'levels.experienced' },
-    { name: 'SASS', levelKey: 'levels.intermediate' },
-    { name: 'JavaScript', levelKey: 'levels.basic' },
-    { name: 'TypeScript', levelKey: 'levels.basic' },
-    { name: 'Material UI', levelKey: 'levels.intermediate' },
+    { name: 'HTML/CSS', levelKey: 'levels.proficient' },
+    { name: 'JS/TS', levelKey: 'levels.proficient' },
+    { name: 'React', levelKey: 'levels.comfortable' },
+    { name: 'Svelte', levelKey: 'levels.comfortable' },
+    { name: 'Tailwind CSS', levelKey: 'levels.comfortable' },
+    { name: 'Material UI', levelKey: 'levels.familiar' },
+    { name: 'Alpine.js', levelKey: 'levels.familiar' },
 ];
 
 export const backendSkills = [
-    { name: 'PostgreSQL', levelKey: 'levels.basic' },
-    { name: 'Node JS', levelKey: 'levels.intermediate' },
-    { name: 'Express JS', levelKey: 'levels.intermediate' },
-    { name: 'Git', levelKey: 'levels.intermediate' },
+    { name: 'Spring', levelKey: 'levels.comfortable' },
+    { name: 'FastAPI', levelKey: 'levels.comfortable' },
+    { name: 'Node.js', levelKey: 'levels.comfortable' },
+    { name: 'Rust', levelKey: 'levels.comfortable' },
+    { name: 'MongoDB', levelKey: 'levels.familiar' },
+    { name: 'Firebase', levelKey: 'levels.familiar' },
+    { name: 'Git', levelKey: 'levels.proficient' },
 ];

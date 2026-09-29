@@ -15,14 +15,18 @@
     "sections": {
         "about": "Sobre mí",
         "experience": "Experiencia",
+        "education": "Educación",
         "projects": "Proyectos",
         "contact": "Contáctame"
+    },
+    "about": {
+        "description": "Estudio Matemáticas como carrera principal e Informática como secundaria, y vivo en Toronto. Me atrae especialmente donde ambos campos se cruzan —la criptografía, la teoría de grafos y la teoría de la información— y disfruto convertir esa teoría en herramientas que la gente pueda usar de verdad. Fuera de las clases, desarrollo aplicaciones web, contribuyo al código abierto y exploro la IA."
     },
     "experience": {
         "frontend": "Desarrollo Frontend",
         "backend": "Desarrollo Backend",
         "years": "Más de 2 años de desarrollo frontend",
-        "degree": "Licenciatura en Ciencias"
+        "degree": "Licenciatura en Matemáticas, mención en Informática"
     },
     "contact": {
         "email": "Correo",
@@ -31,14 +35,15 @@
         "myLinkedin": "Mi LinkedIn"
     },
     "levels": {
-        "experienced": "Experto",
-        "intermediate": "Intermedio",
-        "basic": "Básico"
+        "proficient": "Avanzado",
+        "comfortable": "Cómodo",
+        "familiar": "Familiar"
     },
     "projects": {
         "one": "Proyecto Uno",
         "two": "Proyecto Dos",
-        "three": "Proyecto Tres"
+        "three": "Proyecto Tres",
+        "live": "En vivo"
     },
     "footer": {
         "rights": "© 2026 Kuzey Bilgin. Todos los derechos reservados."

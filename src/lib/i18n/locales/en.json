@@ -15,14 +15,18 @@
     "sections": {
         "about": "About Me",
         "experience": "Experience",
+        "education": "Education",
         "projects": "Projects",
         "contact": "Contact Me"
+    },
+    "about": {
+        "description": "I'm a Mathematics major with a Computer Science minor, based in Toronto. I'm especially drawn to where the two fields overlap — cryptography, graph theory, and information theory — and I enjoy turning that theory into things people can actually use. Outside of coursework, I build web apps, contribute to open source, and explore AI."
     },
     "experience": {
         "frontend": "Frontend Development",
         "backend": "Backend Development",
         "years": "2+ years Frontend Development",
-        "degree": "Bachelor of Science"
+        "degree": "BSc Mathematics, CS Minor"
     },
     "contact": {
         "email": "Email",
@@ -31,14 +35,15 @@
         "myLinkedin": "My LinkedIn"
     },
     "levels": {
-        "experienced": "Experienced",
-        "intermediate": "Intermediate",
-        "basic": "Basic"
+        "proficient": "Proficient",
+        "comfortable": "Comfortable",
+        "familiar": "Familiar"
     },
     "projects": {
         "one": "Project One",
         "two": "Project Two",
-        "three": "Project Three"
+        "three": "Project Three",
+        "live": "Live"
     },
     "footer": { "rights": "© 2026 Kuzey Bilgin. All rights reserved." }
 }

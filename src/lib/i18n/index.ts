@@ -2,10 +2,17 @@ import { addMessages, init, locale } from 'svelte-i18n';
 import en from './locales/en.json';
 import es from './locales/es.json';
 import fr from './locales/fr.json';
+import ja from './locales/ja.json';
+import ko from './locales/ko.json';
+import pt from './locales/pt.json';
+import zh from './locales/zh.json';
 
-export type Locale = 'en' | 'es' | 'fr';
+export type Locale = 'en' | 'es' | 'fr' | 'ja' | 'ko' | 'pt' | 'zh';
 
-export const locales = { en, es, fr } satisfies Record<Locale, object>;
+export const locales = { en, es, fr, ja, ko, pt, zh } satisfies Record<
+    Locale,
+    object
+>;
 
 const STORAGE_KEY = 'language';
 

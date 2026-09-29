@@ -1,0 +1,49 @@
+{
+    "nav": {
+        "about": "소개",
+        "experience": "경력",
+        "projects": "프로젝트",
+        "contact": "문의"
+    },
+    "profile": {
+        "greeting": "안녕하세요, 저는",
+        "name": "Kuzey",
+        "role": "풀스택 개발자",
+        "downloadCv": "이력서 다운로드",
+        "contactInfo": "연락처 정보"
+    },
+    "sections": {
+        "about": "나를 소개",
+        "experience": "경력",
+        "education": "학력",
+        "projects": "프로젝트",
+        "contact": "연락하기"
+    },
+    "about": {
+        "description": "토론토에 머물고 있으며 수학을 전공하고 컴퓨터 과학을 복수전공하고 있습니다. 특히 두 분야가 겹치는 지점인 암호론, 그래프 이론, 정보 이론에 관심이 많고, 그 이론을 실제로 쓸 수 있는 결과물로 만들어내는 일이 즐겁습니다. 수업 밖에는 웹 애플리케이션을 개발하고, 오픈 소스에 기여하며, AI를 탐구합니다."
+    },
+    "experience": {
+        "frontend": "프론트엔드 개발",
+        "backend": "백엔드 개발",
+        "years": "프론트엔드 개발 2년 이상",
+        "degree": "수학 이학사, 컴퓨터 과학 복수전공"
+    },
+    "contact": {
+        "email": "이메일",
+        "emailMe": "이메일 보내기",
+        "linkedin": "LinkedIn",
+        "myLinkedin": "내 LinkedIn"
+    },
+    "levels": {
+        "proficient": "능숙",
+        "comfortable": "익숙",
+        "familiar": "기본"
+    },
+    "projects": {
+        "one": "프로젝트 1",
+        "two": "프로젝트 2",
+        "three": "프로젝트 3",
+        "live": "라이브"
+    },
+    "footer": { "rights": "© 2026 Kuzey Bilgin. All rights reserved." }
+}

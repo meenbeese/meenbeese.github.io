@@ -64,6 +64,37 @@
     });
 </script>
 
+<svelte:head>
+    <title>Kuzey Bilgin — Fullstack Developer</title>
+    <meta
+        name="description"
+        content="Mathematics major and Computer Science minor in Toronto, drawn to where the two fields overlap — cryptography, graph theory, and information theory. I build web apps, contribute to open source, and explore AI."
+    />
+    <link rel="canonical" href="https://kuzey.is-a.dev/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Kuzey Bilgin" />
+    <meta property="og:url" content="https://kuzey.is-a.dev/" />
+    <meta property="og:title" content="Kuzey Bilgin — Fullstack Developer" />
+    <meta
+        property="og:description"
+        content="Mathematics major and Computer Science minor in Toronto, drawn to where the two fields overlap — cryptography, graph theory, and information theory."
+    />
+    <meta
+        property="og:image"
+        content="https://kuzey.is-a.dev/profile-pic.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kuzey Bilgin — Fullstack Developer" />
+    <meta
+        name="twitter:description"
+        content="Mathematics major and Computer Science minor in Toronto, drawn to where the two fields overlap — cryptography, graph theory, and information theory."
+    />
+    <meta
+        name="twitter:image"
+        content="https://kuzey.is-a.dev/profile-pic.png"
+    />
+</svelte:head>
+
 <MouseGlow />
 
 <!-- NAV WRAPPER -->
@@ -77,8 +108,10 @@
                 {#each navLinks as link}
                     <li>
                         <a
-                            class="hover:text-gray-500 transition"
                             href={`#${link.id}`}
+                            class="rounded-full px-4 py-2 text-sm font-medium text-on-surface-variant transition
+                   hover:bg-surface-variant hover:text-on-surface
+                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                         >
                             <T label={link.key} />
                         </a>
@@ -108,7 +141,7 @@
             <!-- DROPDOWN -->
             {#if langOpen}
                 <div
-                    class="absolute right-10 top-20 z-50 w-56 rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 shadow-lg"
+                    class="absolute right-10 top-20 z-50 w-56 overflow-hidden rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 shadow-lg"
                 >
                     {#each languages as lang}
                         <button
@@ -233,7 +266,7 @@
             <div class="flex gap-6 mt-8 justify-center md:justify-start">
                 <button
                     class="px-6 py-3 rounded-full bg-gray-200 dark:bg-zinc-800 text-gray-900 dark:text-gray-100 font-medium text-lg hover:bg-gray-300 dark:hover:bg-zinc-700 transition"
-                    onclick={() => window.open('/resume-example.pdf', '_blank')}
+                    onclick={() => window.open('/resume.pdf', '_blank')}
                 >
                     <T label="profile.downloadCv" />
                 </button>
@@ -309,7 +342,7 @@
 
                     <div>
                         <h3 class="font-semibold text-on-surface">
-                            Experience
+                            <T label="sections.experience" />
                         </h3>
                         <p class="text-sm text-on-surface-variant">
                             <T label="experience.years" />
@@ -332,7 +365,9 @@
                     </div>
 
                     <div>
-                        <h3 class="font-semibold text-on-surface">Education</h3>
+                        <h3 class="font-semibold text-on-surface">
+                            <T label="sections.education" />
+                        </h3>
                         <p class="text-sm text-on-surface-variant">
                             <T label="experience.degree" />
                         </p>
@@ -345,9 +380,7 @@
                 class="rounded-2xl border border-outline/10 bg-surface-variant/20 p-5"
             >
                 <p class="text-sm leading-relaxed text-on-surface-variant">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quisquam, quos, doloremque voluptatem asperiores
-                    reprehenderit saepe nulla pariatur eligendi tempora.
+                    <T label="about.description" />
                 </p>
             </div>
         </div>
@@ -497,7 +530,7 @@
                             class="rounded-full bg-primary dark:bg-slate-200 px-4 py-2 text-sm font-medium text-white dark:text-slate-900"
                             onclick={() => window.open(project.live, '_blank')}
                         >
-                            <T label="Live" />
+                            <T label="projects.live" />
                         </button>
                     </div>
                 </div>
