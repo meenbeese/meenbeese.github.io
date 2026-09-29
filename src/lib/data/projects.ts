@@ -1,18 +1,18 @@
 export const projects = [
     {
-        title: 'Project One',
+        titleKey: 'projects.one',
         img: '/project-1.png',
         github: 'https://github.com/',
         live: 'https://github.com/',
     },
     {
-        title: 'Project Two',
+        titleKey: 'projects.two',
         img: '/project-2.png',
         github: 'https://github.com/',
         live: 'https://github.com/',
     },
     {
-        title: 'Project Three',
+        titleKey: 'projects.three',
         img: '/project-3.png',
         github: 'https://github.com/',
         live: 'https://github.com/',

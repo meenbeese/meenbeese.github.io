@@ -1,7 +1,6 @@
 <script lang="ts">
-    import { language } from '$lib/api/i18n';
-    import { initI18n } from '$lib/api/bootstrap';
     import { onMount } from 'svelte';
+    import { locale } from 'svelte-i18n';
 
     import Check from '@lucide/svelte/icons/check';
     import Globe from '@lucide/svelte/icons/globe';
@@ -16,6 +15,12 @@
     import { backendSkills } from '$lib/data/skills';
     import { languages } from '$lib/data/langs';
     import { socials } from '$lib/data/socials';
+    import {
+        setupI18n,
+        restoreLocale,
+        setLocale,
+        type Locale,
+    } from '$lib/i18n';
 
     let open = $state(false);
     let darkMode = $state(false);
@@ -37,28 +42,24 @@
         }
     }
 
-    function setLanguage(code: string) {
-        language.set(code);
-        localStorage.setItem('language', code);
+    function changeLanguage(code: Locale) {
+        setLocale(code);
         langOpen = false;
     }
 
+    // Prerendering is server-side, so the locale has to be registered
+    // before the component tree renders.
+    setupI18n();
+
     onMount(() => {
-        initI18n();
+        restoreLocale();
 
-        const savedTheme = localStorage.getItem('theme');
-        const savedLang = localStorage.getItem('language');
-
-        if (savedTheme === 'dark') {
+        if (localStorage.getItem('theme') === 'dark') {
             darkMode = true;
             document.documentElement.classList.add('dark');
         } else {
             darkMode = false;
             document.documentElement.classList.remove('dark');
-        }
-
-        if (savedLang) {
-            language.set(savedLang);
         }
     });
 </script>
@@ -79,7 +80,7 @@
                             class="hover:text-gray-500 transition"
                             href={`#${link.id}`}
                         >
-                            <T label={link.label} />
+                            <T label={link.key} />
                         </a>
                     </li>
                 {/each}
@@ -112,11 +113,11 @@
                     {#each languages as lang}
                         <button
                             class="w-full px-4 py-2 text-left text-sm text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-zinc-800 transition flex items-center justify-between"
-                            onclick={() => setLanguage(lang.code)}
+                            onclick={() => changeLanguage(lang.code)}
                         >
                             <span>{lang.label}</span>
 
-                            {#if $language === lang.code}
+                            {#if $locale === lang.code}
                                 <Check size={16} />
                             {/if}
                         </button>
@@ -155,11 +156,11 @@
                     {#each languages as lang}
                         <button
                             class="text-left py-2 text-sm flex items-center justify-between w-full"
-                            onclick={() => setLanguage(lang.code)}
+                            onclick={() => changeLanguage(lang.code)}
                         >
                             <span>{lang.label}</span>
 
-                            {#if $language === lang.code}
+                            {#if $locale === lang.code}
                                 <Check size={16} />
                             {/if}
                         </button>
@@ -188,7 +189,7 @@
                     href={`#${link.id}`}
                     onclick={toggleMenu}
                 >
-                    {link.label}
+                    <T label={link.key} />
                 </a>
             {/each}
         </div>
@@ -215,7 +216,7 @@
         <!-- TEXT -->
         <div class="text-center md:text-left max-w-xl">
             <p class="text-2xl text-gray-500 dark:text-gray-400">
-                <T label="Hello, I'm" />
+                <T label="profile.greeting" />
             </p>
 
             <h1
@@ -225,7 +226,7 @@
             </h1>
 
             <p class="text-2xl text-gray-600 dark:text-gray-300 mt-2">
-                <T label="Fullstack Developer" />
+                <T label="profile.role" />
             </p>
 
             <!-- BUTTONS -->
@@ -234,14 +235,14 @@
                     class="px-6 py-3 rounded-full bg-gray-200 dark:bg-zinc-800 text-gray-900 dark:text-gray-100 font-medium text-lg hover:bg-gray-300 dark:hover:bg-zinc-700 transition"
                     onclick={() => window.open('/resume-example.pdf', '_blank')}
                 >
-                    <T label="Download CV" />
+                    <T label="profile.downloadCv" />
                 </button>
 
                 <button
                     class="px-6 py-3 rounded-full bg-gray-900 dark:bg-white text-white dark:text-black font-medium text-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition"
                     onclick={() => (location.href = '#contact')}
                 >
-                    <T label="Contact Info" />
+                    <T label="profile.contactInfo" />
                 </button>
             </div>
 
@@ -271,7 +272,7 @@
     <h2
         class="mb-12 text-center text-4xl font-semibold tracking-tight text-on-surface"
     >
-        <T label="About Me" />
+        <T label="sections.about" />
     </h2>
 
     <div
@@ -311,7 +312,7 @@
                             Experience
                         </h3>
                         <p class="text-sm text-on-surface-variant">
-                            2+ years Frontend Development
+                            <T label="experience.years" />
                         </p>
                     </div>
                 </div>
@@ -333,7 +334,7 @@
                     <div>
                         <h3 class="font-semibold text-on-surface">Education</h3>
                         <p class="text-sm text-on-surface-variant">
-                            Bachelor of Science
+                            <T label="experience.degree" />
                         </p>
                     </div>
                 </div>
@@ -358,7 +359,7 @@
     <h2
         class="mb-12 text-center text-4xl font-semibold tracking-tight text-on-surface"
     >
-        <T label="Experience" />
+        <T label="sections.experience" />
     </h2>
 
     <div class="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2">
@@ -367,7 +368,7 @@
             class="rounded-2xl border border-outline/20 bg-surface p-6 shadow-sm transition hover:shadow-md"
         >
             <h3 class="mb-6 text-center text-xl font-semibold text-on-surface">
-                <T label="Frontend Development" />
+                <T label="experience.frontend" />
             </h3>
 
             <ul class="space-y-3">
@@ -393,7 +394,7 @@
                                 {skill.name}
                             </p>
                             <p class="text-sm text-on-surface-variant">
-                                {skill.level}
+                                <T label={skill.levelKey} />
                             </p>
                         </div>
                     </li>
@@ -406,7 +407,7 @@
             class="rounded-2xl border border-outline/20 bg-surface p-6 shadow-sm transition hover:shadow-md"
         >
             <h3 class="mb-6 text-center text-xl font-semibold text-on-surface">
-                <T label="Backend Development" />
+                <T label="experience.backend" />
             </h3>
 
             <ul class="space-y-3">
@@ -432,7 +433,7 @@
                                 {skill.name}
                             </p>
                             <p class="text-sm text-on-surface-variant">
-                                {skill.level}
+                                <T label={skill.levelKey} />
                             </p>
                         </div>
                     </li>
@@ -447,7 +448,7 @@
     <h2
         class="mb-12 text-center text-4xl font-semibold tracking-tight text-on-surface"
     >
-        <T label="Projects" />
+        <T label="sections.projects" />
     </h2>
 
     <div
@@ -467,7 +468,7 @@
                     >
                         <img
                             src={project.img}
-                            alt={project.title}
+                            alt={project.titleKey}
                             class="h-full w-full object-cover"
                         />
                     </div>
@@ -476,7 +477,7 @@
                 <!-- Content -->
                 <div class="flex flex-1 flex-col p-5 text-center">
                     <h3 class="text-lg font-semibold text-on-surface">
-                        {project.title}
+                        <T label={project.titleKey} />
                     </h3>
 
                     <!-- Actions -->
@@ -508,7 +509,7 @@
 <!-- CONTACT -->
 <section id="contact" class="px-6 py-16 text-center">
     <h2 class="mb-10 text-4xl font-semibold tracking-tight text-on-surface">
-        <T label="Contact Me" />
+        <T label="sections.contact" />
     </h2>
 
     <div
@@ -531,11 +532,13 @@
             </div>
 
             <div class="text-left">
-                <p class="text-sm text-on-surface-variant">Email</p>
+                <p class="text-sm text-on-surface-variant">
+                    <T label="contact.email" />
+                </p>
                 <p
                     class="font-medium text-on-surface group-hover:text-primary transition"
                 >
-                    <T label="Email Me" />
+                    <T label="contact.emailMe" />
                 </p>
             </div>
         </a>
@@ -557,11 +560,13 @@
             </div>
 
             <div class="text-left">
-                <p class="text-sm text-on-surface-variant">LinkedIn</p>
+                <p class="text-sm text-on-surface-variant">
+                    <T label="contact.linkedin" />
+                </p>
                 <p
                     class="font-medium text-on-surface group-hover:text-primary transition"
                 >
-                    <T label="My LinkedIn" />
+                    <T label="contact.myLinkedin" />
                 </p>
             </div>
         </a>
@@ -582,7 +587,7 @@
                    hover:bg-surface-variant hover:text-on-surface
                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                     >
-                        <T label={link.label} />
+                        <T label={link.key} />
                     </a>
                 </li>
             {/each}
@@ -593,7 +598,7 @@
         <div class="h-px w-full bg-outline/20 mb-6"></div>
 
         <p class="text-sm text-on-surface-variant">
-            © 2026 Kuzey Bilgin. All rights reserved.
+            <T label="footer.rights" />
         </p>
     </div>
 </footer>

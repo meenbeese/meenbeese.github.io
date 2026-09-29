@@ -1,16 +1,7 @@
+import type { Locale } from '$lib/i18n';
+
 export const languages = [
-    { code: 'EN', label: 'English' },
-    { code: 'ES', label: 'Spanish' },
-    { code: 'FR', label: 'French' },
-    { code: 'DE', label: 'German' },
-    { code: 'IT', label: 'Italian' },
-    { code: 'KO', label: 'Korean' },
-    { code: 'PT', label: 'Portuguese' },
-    { code: 'FA', label: 'Persian' },
-    { code: 'RU', label: 'Russian' },
-    { code: 'HI', label: 'Hindi' },
-    { code: 'TR', label: 'Turkish' },
-    { code: 'JA', label: 'Japanese' },
-    { code: 'ZH-HANS', label: 'Chinese (Simplified)' },
-    { code: 'ZH-HANT', label: 'Chinese (Traditional)' },
-];
+    { code: 'en', label: 'English' },
+    { code: 'es', label: 'Español' },
+    { code: 'fr', label: 'Français' },
+] as const satisfies ReadonlyArray<{ code: Locale; label: string }>;

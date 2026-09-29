@@ -1,0 +1,46 @@
+{
+    "nav": {
+        "about": "Sobre mí",
+        "experience": "Experiencia",
+        "projects": "Proyectos",
+        "contact": "Contacto"
+    },
+    "profile": {
+        "greeting": "Hola, soy",
+        "name": "Kuzey",
+        "role": "Desarrollador Fullstack",
+        "downloadCv": "Descargar CV",
+        "contactInfo": "Información de contacto"
+    },
+    "sections": {
+        "about": "Sobre mí",
+        "experience": "Experiencia",
+        "projects": "Proyectos",
+        "contact": "Contáctame"
+    },
+    "experience": {
+        "frontend": "Desarrollo Frontend",
+        "backend": "Desarrollo Backend",
+        "years": "Más de 2 años de desarrollo frontend",
+        "degree": "Licenciatura en Ciencias"
+    },
+    "contact": {
+        "email": "Correo",
+        "emailMe": "Envíame un correo",
+        "linkedin": "LinkedIn",
+        "myLinkedin": "Mi LinkedIn"
+    },
+    "levels": {
+        "experienced": "Experto",
+        "intermediate": "Intermedio",
+        "basic": "Básico"
+    },
+    "projects": {
+        "one": "Proyecto Uno",
+        "two": "Proyecto Dos",
+        "three": "Proyecto Tres"
+    },
+    "footer": {
+        "rights": "© 2026 Kuzey Bilgin. Todos los derechos reservados."
+    }
+}
