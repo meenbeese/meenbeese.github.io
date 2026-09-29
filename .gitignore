@@ -8,6 +8,9 @@ node_modules
 /.svelte-kit
 /build
 
+# Build output — deployed by .github/workflows/deploy.yml
+docs
+
 # OS
 .DS_Store
 Thumbs.db

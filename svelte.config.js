@@ -16,10 +16,7 @@ const config = {
             assets: 'docs',
             fallback: 'index.html',
         }),
-		paths: {
-			base: '',
-			assets: '',
-		},
+        paths: { base: '', assets: '' },
     },
 };
 

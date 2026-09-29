@@ -1,0 +1,9 @@
+docs
+node_modules
+.svelte-kit
+build
+bun.lock
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+static

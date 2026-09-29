@@ -87,7 +87,7 @@
 
             <button
                 onclick={toggleTheme}
-                class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 hover:bg-gray-100 transition"
+                class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 dark:border-zinc-700 hover:bg-gray-100 dark:hover:bg-zinc-800 transition"
                 aria-label="Toggle dark mode"
             >
                 {#if darkMode}
@@ -98,7 +98,7 @@
             </button>
             <button
                 onclick={() => (langOpen = !langOpen)}
-                class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 hover:bg-gray-100 transition"
+                class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 dark:border-zinc-700 hover:bg-gray-100 dark:hover:bg-zinc-800 transition"
                 aria-label="Toggle language"
             >
                 <Globe size={18} />
@@ -133,7 +133,7 @@
         <div class="flex items-center gap-3">
             <button
                 onclick={toggleTheme}
-                class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 hover:bg-gray-100 transition"
+                class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 dark:border-zinc-700 hover:bg-gray-100 dark:hover:bg-zinc-800 transition"
                 aria-label="Toggle dark mode"
             >
                 {#if darkMode}
@@ -144,7 +144,7 @@
             </button>
             <button
                 onclick={() => (langOpen = !langOpen)}
-                class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 hover:bg-gray-100 transition"
+                class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 dark:border-zinc-700 hover:bg-gray-100 dark:hover:bg-zinc-800 transition"
                 aria-label="Toggle language"
             >
                 <Globe size={18} />
@@ -167,10 +167,14 @@
                 </div>
             {/if}
 
-            <button onclick={toggleMenu} class="flex flex-col gap-1">
-                <span class="w-6 h-0.5 bg-black"></span>
-                <span class="w-6 h-0.5 bg-black"></span>
-                <span class="w-6 h-0.5 bg-black"></span>
+            <button
+                onclick={toggleMenu}
+                class="flex flex-col gap-1"
+                aria-label="Toggle menu"
+            >
+                <span class="w-6 h-0.5 bg-foreground"></span>
+                <span class="w-6 h-0.5 bg-foreground"></span>
+                <span class="w-6 h-0.5 bg-foreground"></span>
             </button>
         </div>
     </nav>
@@ -197,29 +201,30 @@
     class="min-h-[85vh] flex flex-col md:flex-row items-center justify-center gap-12 px-10 mb-24"
 >
     <!-- subtle background wrapper -->
-    <div class="w-full max-w-4xl rounded-3xl bg-gray-200/40 dark:bg-zinc-900/30 px-10 py-16 flex flex-col md:flex-row items-center justify-center gap-12">
-
+    <div
+        class="w-full max-w-4xl rounded-[2.75rem] bg-gray-200/40 dark:bg-zinc-900/30 px-10 py-16 flex flex-col md:flex-row items-center justify-center gap-12"
+    >
         <div class="w-[240px] h-[240px] md:w-[300px] md:h-[300px]">
             <img
                 src="/profile-pic.png"
-                class="w-full h-full object-cover rounded-full border border-gray-200 shadow-md"
+                class="w-full h-full object-cover rounded-full border border-gray-200 dark:border-zinc-700 shadow-md"
                 alt="Profile picture"
             />
         </div>
 
         <!-- TEXT -->
         <div class="text-center md:text-left max-w-xl">
-            <p class="text-2xl text-gray-500">
+            <p class="text-2xl text-gray-500 dark:text-gray-400">
                 <T label="Hello, I'm" />
             </p>
 
             <h1
-                class="text-6xl md:text-7xl font-bold tracking-tight text-gray-900 leading-tight"
+                class="text-6xl md:text-7xl font-bold tracking-tight text-gray-900 dark:text-gray-50 leading-tight"
             >
                 Kuzey
             </h1>
 
-            <p class="text-2xl text-gray-600 mt-2">
+            <p class="text-2xl text-gray-600 dark:text-gray-300 mt-2">
                 <T label="Fullstack Developer" />
             </p>
 
@@ -249,11 +254,14 @@
                                focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-zinc-600"
                         onclick={() => window.open(s.url, '_blank')}
                     >
-                        <img src={s.img} class="w-7 h-7" alt="social icon" />
+                        <img
+                            src={s.img}
+                            class="w-7 h-7 dark:invert"
+                            alt="social icon"
+                        />
                     </button>
                 {/each}
             </div>
-
         </div>
     </div>
 </section>
@@ -271,7 +279,7 @@
     >
         <!-- IMAGE -->
         <div
-            class="relative h-72 w-72 overflow-hidden rounded-3xl border border-outline/20 bg-surface shadow-sm"
+            class="relative h-72 w-72 overflow-hidden rounded-3xl border border-outline/30 bg-surface shadow-sm"
         >
             <img
                 src="/about-pic.png"
@@ -293,7 +301,7 @@
                     >
                         <img
                             src="/experience.png"
-                            class="h-5 w-5"
+                            class="h-5 w-5 dark:invert"
                             alt="experience icon"
                         />
                     </div>
@@ -317,7 +325,7 @@
                     >
                         <img
                             src="/education.png"
-                            class="h-5 w-5"
+                            class="h-5 w-5 dark:invert"
                             alt="education icon"
                         />
                     </div>
@@ -373,7 +381,7 @@
                         >
                             <img
                                 src="/checkmark.png"
-                                class="h-4 w-4"
+                                class="h-4 w-4 dark:invert"
                                 alt="check"
                             />
                         </div>
@@ -412,7 +420,7 @@
                         >
                             <img
                                 src="/checkmark.png"
-                                class="h-4 w-4"
+                                class="h-4 w-4 dark:invert"
                                 alt="check"
                             />
                         </div>
@@ -448,17 +456,21 @@
         {#each projects as project}
             <article
                 class="group flex flex-col overflow-hidden rounded-2xl border border-outline/20 bg-surface
-               transition hover:shadow-lg hover:border-outline/40"
+               transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-outline/50"
             >
                 <!-- Image -->
                 <div
                     class="relative h-44 w-full overflow-hidden bg-surface-variant"
                 >
-                    <img
-                        src={project.img}
-                        alt={project.title}
-                        class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
-                    />
+                    <div
+                        class="h-full w-full origin-center transition-transform duration-500 ease-out group-hover:scale-[1.12]"
+                    >
+                        <img
+                            src={project.img}
+                            alt={project.title}
+                            class="h-full w-full object-cover"
+                        />
+                    </div>
                 </div>
 
                 <!-- Content -->
@@ -511,7 +523,11 @@
             <div
                 class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10"
             >
-                <img src="/email.png" class="h-5 w-5" alt="Email icon" />
+                <img
+                    src="/email.png"
+                    class="h-5 w-5 dark:invert"
+                    alt="Email icon"
+                />
             </div>
 
             <div class="text-left">
@@ -533,7 +549,11 @@
             <div
                 class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10"
             >
-                <img src="/linkedin.png" class="h-5 w-5" alt="LinkedIn icon" />
+                <img
+                    src="/linkedin.png"
+                    class="h-5 w-5 dark:invert"
+                    alt="LinkedIn icon"
+                />
             </div>
 
             <div class="text-left">
