@@ -64,6 +64,37 @@
     });
 </script>
 
+<svelte:head>
+    <title>Kuzey Bilgin — Fullstack Developer</title>
+    <meta
+        name="description"
+        content="Mathematics major and Computer Science minor in Toronto, drawn to where the two fields overlap — cryptography, graph theory, and information theory. I build web apps, contribute to open source, and explore AI."
+    />
+    <link rel="canonical" href="https://kuzey.is-a.dev/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Kuzey Bilgin" />
+    <meta property="og:url" content="https://kuzey.is-a.dev/" />
+    <meta property="og:title" content="Kuzey Bilgin — Fullstack Developer" />
+    <meta
+        property="og:description"
+        content="Mathematics major and Computer Science minor in Toronto, drawn to where the two fields overlap — cryptography, graph theory, and information theory."
+    />
+    <meta
+        property="og:image"
+        content="https://kuzey.is-a.dev/profile-pic.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kuzey Bilgin — Fullstack Developer" />
+    <meta
+        name="twitter:description"
+        content="Mathematics major and Computer Science minor in Toronto, drawn to where the two fields overlap — cryptography, graph theory, and information theory."
+    />
+    <meta
+        name="twitter:image"
+        content="https://kuzey.is-a.dev/profile-pic.png"
+    />
+</svelte:head>
+
 <MouseGlow />
 
 <!-- NAV WRAPPER -->
@@ -72,13 +103,15 @@
     <nav class="hidden md:flex justify-between items-center px-10 py-6">
         <div class="font-bold text-xl">Kuzey Bilgin</div>
 
-        <div class="flex items-center gap-8">
-            <ul class="flex gap-8">
+        <div class="flex items-center gap-6">
+            <ul class="flex gap-5">
                 {#each navLinks as link}
                     <li>
                         <a
-                            class="hover:text-gray-500 transition"
                             href={`#${link.id}`}
+                            class="rounded-full px-4 py-2 text-sm font-medium text-on-surface-variant transition
+                   hover:bg-surface-variant hover:text-on-surface
+                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                         >
                             <T label={link.key} />
                         </a>
@@ -108,7 +141,7 @@
             <!-- DROPDOWN -->
             {#if langOpen}
                 <div
-                    class="absolute right-10 top-20 z-50 w-56 rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 shadow-lg"
+                    class="absolute right-10 top-20 z-50 w-44 overflow-hidden rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 shadow-lg"
                 >
                     {#each languages as lang}
                         <button
@@ -203,12 +236,13 @@
 >
     <!-- subtle background wrapper -->
     <div
-        class="w-full max-w-4xl rounded-[2.75rem] bg-gray-200/40 dark:bg-zinc-900/30 px-10 py-16 flex flex-col md:flex-row items-center justify-center gap-12"
+        class="w-full max-w-4xl rounded-[2.75rem] bg-gray-200/40 dark:bg-zinc-800/60 border border-transparent dark:border-white/10 px-10 py-16 flex flex-col md:flex-row items-center justify-center gap-12 dark:shadow-[0_8px_40px_-12px_rgba(0,0,0,0.7)]"
     >
-        <div class="w-[240px] h-[240px] md:w-[300px] md:h-[300px]">
+        <div class="pfp-wrap w-[240px] h-[240px] md:w-[300px] md:h-[300px]">
+            <div class="pfp-glow" aria-hidden="true"></div>
             <img
                 src="/profile-pic.png"
-                class="w-full h-full object-cover rounded-full border border-gray-200 dark:border-zinc-700 shadow-md"
+                class="relative z-[1] w-full h-full object-cover rounded-full border border-gray-200 dark:border-zinc-700 shadow-md"
                 alt="Profile picture"
             />
         </div>
@@ -233,7 +267,7 @@
             <div class="flex gap-6 mt-8 justify-center md:justify-start">
                 <button
                     class="px-6 py-3 rounded-full bg-gray-200 dark:bg-zinc-800 text-gray-900 dark:text-gray-100 font-medium text-lg hover:bg-gray-300 dark:hover:bg-zinc-700 transition"
-                    onclick={() => window.open('/resume-example.pdf', '_blank')}
+                    onclick={() => window.open('/resume.pdf', '_blank')}
                 >
                     <T label="profile.downloadCv" />
                 </button>
@@ -309,7 +343,7 @@
 
                     <div>
                         <h3 class="font-semibold text-on-surface">
-                            Experience
+                            <T label="sections.experience" />
                         </h3>
                         <p class="text-sm text-on-surface-variant">
                             <T label="experience.years" />
@@ -332,7 +366,9 @@
                     </div>
 
                     <div>
-                        <h3 class="font-semibold text-on-surface">Education</h3>
+                        <h3 class="font-semibold text-on-surface">
+                            <T label="sections.education" />
+                        </h3>
                         <p class="text-sm text-on-surface-variant">
                             <T label="experience.degree" />
                         </p>
@@ -345,9 +381,7 @@
                 class="rounded-2xl border border-outline/10 bg-surface-variant/20 p-5"
             >
                 <p class="text-sm leading-relaxed text-on-surface-variant">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quisquam, quos, doloremque voluptatem asperiores
-                    reprehenderit saepe nulla pariatur eligendi tempora.
+                    <T label="about.description" />
                 </p>
             </div>
         </div>
@@ -497,7 +531,7 @@
                             class="rounded-full bg-primary dark:bg-slate-200 px-4 py-2 text-sm font-medium text-white dark:text-slate-900"
                             onclick={() => window.open(project.live, '_blank')}
                         >
-                            <T label="Live" />
+                            <T label="projects.live" />
                         </button>
                     </div>
                 </div>
@@ -602,3 +636,77 @@
         </p>
     </div>
 </footer>
+
+<style>
+    .pfp-wrap {
+        position: relative;
+        isolation: isolate;
+        border-radius: 9999px;
+    }
+
+    .pfp-wrap img {
+        transition:
+            box-shadow 0.5s ease,
+            border-color 0.5s ease;
+    }
+
+    .pfp-glow {
+        position: absolute;
+        inset: -5px;
+        border-radius: 9999px;
+        background: linear-gradient(
+            135deg,
+            rgba(150, 150, 160, 0.65),
+            rgba(120, 120, 130, 0.25),
+            rgba(150, 150, 160, 0.65)
+        );
+        filter: blur(12px);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    :global(.dark) .pfp-glow {
+        background: linear-gradient(
+            135deg,
+            rgba(210, 210, 220, 0.7),
+            rgba(160, 160, 175, 0.3),
+            rgba(210, 210, 220, 0.7)
+        );
+    }
+
+    .pfp-wrap:hover .pfp-glow {
+        opacity: 0.85;
+    }
+
+    .pfp-wrap:hover img {
+        border-color: rgba(150, 150, 160, 0.7);
+        box-shadow:
+            0 0 0 1px rgba(150, 150, 160, 0.35),
+            0 0 24px rgba(150, 150, 160, 0.3);
+    }
+
+    :global(.dark) .pfp-wrap:hover img {
+        border-color: rgba(200, 200, 210, 0.7);
+        box-shadow:
+            0 0 0 1px rgba(200, 200, 210, 0.3),
+            0 0 28px rgba(200, 200, 210, 0.35);
+    }
+
+    @media (hover: none) {
+        .pfp-glow {
+            display: none;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .pfp-glow,
+        .pfp-wrap img {
+            transition: none;
+        }
+        .pfp-wrap:hover .pfp-glow {
+            opacity: 0.5;
+        }
+    }
+</style>

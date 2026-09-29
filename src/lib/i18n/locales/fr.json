@@ -13,16 +13,20 @@
         "contactInfo": "Coordonnées"
     },
     "sections": {
-        "about": "À propos de moi",
+        "about": "À propos",
         "experience": "Expérience",
+        "education": "Éducation",
         "projects": "Projets",
         "contact": "Contactez-moi"
+    },
+    "about": {
+        "description": "J'étudie les mathématiques (majeure) et l'informatique (mineure), et je vis à Toronto. Ce qui me passionne, c'est leur chevauchement, comme la cryptographie, la théorie des graphes et la théorie de l'information. J'aime aussi transformer cette théorie en outils réellement utiles. En dehors de mes cours, je développe des applications web, je contribue à l'open source et j'explore les outils d'IA."
     },
     "experience": {
         "frontend": "Développement Frontend",
         "backend": "Développement Backend",
-        "years": "Plus de 2 ans d'expérience en développement frontend",
-        "degree": "Licence en sciences"
+        "years": "Plus de 2 ans dans des équipes de design",
+        "degree": "BSc en mathématiques et en informatique"
     },
     "contact": {
         "email": "E-mail",
@@ -31,14 +35,15 @@
         "myLinkedin": "Mon LinkedIn"
     },
     "levels": {
-        "experienced": "Expérimenté",
-        "intermediate": "Intermédiaire",
-        "basic": "Débutant"
+        "proficient": "Maîtrisé",
+        "comfortable": "À l'aise",
+        "familiar": "Familier"
     },
     "projects": {
         "one": "Projet Un",
         "two": "Projet Deux",
-        "three": "Projet Trois"
+        "three": "Projet Trois",
+        "live": "En direct"
     },
     "footer": { "rights": "© 2026 Kuzey Bilgin. Tous droits réservés." }
 }
