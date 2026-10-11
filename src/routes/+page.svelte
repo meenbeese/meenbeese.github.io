@@ -3,6 +3,8 @@
     import { locale } from 'svelte-i18n';
 
     import Check from '@lucide/svelte/icons/check';
+    import ChevronLeft from '@lucide/svelte/icons/chevron-left';
+    import ChevronRight from '@lucide/svelte/icons/chevron-right';
     import Globe from '@lucide/svelte/icons/globe';
     import Moon from '@lucide/svelte/icons/moon';
     import Sun from '@lucide/svelte/icons/sun';
@@ -13,7 +15,8 @@
     import { projects } from '$lib/data/projects';
     import { frontendSkills } from '$lib/data/skills';
     import { backendSkills } from '$lib/data/skills';
-    import { languages } from '$lib/data/langs';
+    import { locales } from '$lib/data/langs';
+    import { languages } from '$lib/data/programming';
     import { socials } from '$lib/data/socials';
     import {
         setupI18n,
@@ -25,6 +28,39 @@
     let open = $state(false);
     let darkMode = $state(false);
     let langOpen = $state(false);
+
+    let langScroller = $state<HTMLDivElement | null>(null);
+    let canScrollPrev = $state(false);
+    let canScrollNext = $state(false);
+
+    function updateLangScrollState() {
+        const el = langScroller;
+        if (!el) return;
+        canScrollPrev = el.scrollLeft > 4;
+        canScrollNext = el.scrollLeft + el.clientWidth < el.scrollWidth - 4;
+    }
+
+    function scrollLangs(dir: 1 | -1) {
+        langScroller?.scrollBy({ left: dir * 220, behavior: 'smooth' });
+    }
+
+    $effect(() => {
+        const el = langScroller;
+        // Defer past first layout so scroll metrics are settled.
+        const frame = requestAnimationFrame(() => updateLangScrollState());
+        const onLoad = () => updateLangScrollState();
+        window.addEventListener('load', onLoad);
+        const ro =
+            typeof ResizeObserver !== 'undefined' && el
+                ? new ResizeObserver(() => updateLangScrollState())
+                : null;
+        if (el && ro) ro.observe(el);
+        return () => {
+            cancelAnimationFrame(frame);
+            window.removeEventListener('load', onLoad);
+            ro?.disconnect();
+        };
+    });
 
     function toggleMenu() {
         open = !open;
@@ -143,7 +179,7 @@
                 <div
                     class="absolute right-10 top-20 z-50 w-44 overflow-hidden rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 shadow-lg"
                 >
-                    {#each languages as lang}
+                    {#each locales as lang}
                         <button
                             class="w-full px-4 py-2 text-left text-sm text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-zinc-800 transition flex items-center justify-between"
                             onclick={() => changeLanguage(lang.code)}
@@ -186,7 +222,7 @@
 
             {#if langOpen}
                 <div class="px-6 pb-4 flex flex-col gap-2">
-                    {#each languages as lang}
+                    {#each locales as lang}
                         <button
                             class="text-left py-2 text-sm flex items-center justify-between w-full"
                             onclick={() => changeLanguage(lang.code)}
@@ -385,6 +421,59 @@
                 </p>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- LANGUAGES -->
+<section id="languages" class="px-6 py-16">
+    <h2
+        class="mb-12 text-center text-4xl font-semibold tracking-tight text-on-surface"
+    >
+        <T label="sections.languages" />
+    </h2>
+
+    <div class="mx-auto flex max-w-5xl items-center justify-center gap-2 md:gap-4">
+        <button
+            onclick={() => scrollLangs(-1)}
+            disabled={!canScrollPrev}
+            aria-label="Scroll languages left"
+            class="flex h-10 w-10 md:h-9 md:w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 dark:border-zinc-700 transition hover:bg-gray-100 dark:hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-transparent dark:disabled:hover:bg-transparent"
+        >
+            <ChevronLeft size={20} />
+        </button>
+
+        <div
+            bind:this={langScroller}
+            onscroll={updateLangScrollState}
+            class="flex flex-nowrap items-center gap-3 md:gap-4 overflow-x-auto px-1 py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+            {#each languages as lang}
+                <a
+                    href={lang.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={lang.name}
+                    aria-label={lang.name}
+                    class="flex h-20 w-20 md:h-[94px] md:w-[94px] shrink-0 items-center justify-center rounded-2xl border border-outline/20 bg-[#F4F2ED] dark:bg-[#242938] p-2 shadow-sm transition duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-md hover:border-outline/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary md:p-2.5"
+                >
+                    <img
+                        src={lang.icon}
+                        alt={lang.name}
+                        loading="lazy"
+                        class="h-full w-full object-contain"
+                    />
+                </a>
+            {/each}
+        </div>
+
+        <button
+            onclick={() => scrollLangs(1)}
+            disabled={!canScrollNext}
+            aria-label="Scroll languages right"
+            class="flex h-10 w-10 md:h-9 md:w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 dark:border-zinc-700 transition hover:bg-gray-100 dark:hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-transparent dark:disabled:hover:bg-transparent"
+        >
+            <ChevronRight size={20} />
+        </button>
     </div>
 </section>
 

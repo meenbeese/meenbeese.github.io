@@ -1,6 +1,7 @@
 {
     "nav": {
         "about": "Sobre mí",
+        "languages": "Lenguajes",
         "experience": "Experiencia",
         "projects": "Proyectos",
         "contact": "Contacto"
@@ -16,6 +17,7 @@
         "about": "Sobre mí",
         "experience": "Experiencia",
         "education": "Educación",
+        "languages": "Lenguajes",
         "projects": "Proyectos",
         "contact": "Contáctame"
     },

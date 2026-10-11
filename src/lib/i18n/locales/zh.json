@@ -1,6 +1,7 @@
 {
     "nav": {
         "about": "关于",
+        "languages": "语言",
         "experience": "经历",
         "projects": "项目",
         "contact": "联系"
@@ -16,6 +17,7 @@
         "about": "关于我",
         "experience": "工作经历",
         "education": "教育背景",
+        "languages": "编程语言",
         "projects": "项目",
         "contact": "联系我"
     },

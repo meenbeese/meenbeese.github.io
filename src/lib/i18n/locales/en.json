@@ -1,6 +1,7 @@
 {
     "nav": {
         "about": "About",
+        "languages": "Languages",
         "experience": "Experience",
         "projects": "Projects",
         "contact": "Contact"
@@ -16,6 +17,7 @@
         "about": "About Me",
         "experience": "Experience",
         "education": "Education",
+        "languages": "Languages",
         "projects": "Projects",
         "contact": "Contact Me"
     },

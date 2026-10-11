@@ -1,6 +1,6 @@
 import type { Locale } from '$lib/i18n';
 
-export const languages = [
+export const locales = [
     { code: 'en', label: 'English' },
     { code: 'es', label: 'Español' },
     { code: 'fr', label: 'Français' },

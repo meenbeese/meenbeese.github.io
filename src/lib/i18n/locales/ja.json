@@ -1,6 +1,7 @@
 {
     "nav": {
         "about": "概要",
+        "languages": "言語",
         "experience": "経歴",
         "projects": "プロジェクト",
         "contact": "お問い合わせ"
@@ -16,6 +17,7 @@
         "about": "私について",
         "experience": "職歴",
         "education": "学歴",
+        "languages": "プログラミング言語",
         "projects": "プロジェクト",
         "contact": "お問い合わせください"
     },

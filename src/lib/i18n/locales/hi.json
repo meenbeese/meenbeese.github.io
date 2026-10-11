@@ -1,6 +1,7 @@
 {
     "nav": {
         "about": "परिचय",
+        "languages": "भाषाएँ",
         "experience": "अनुभव",
         "projects": "प्रोजेक्ट",
         "contact": "संपर्क"
@@ -16,6 +17,7 @@
         "about": "मेरे बारे में",
         "experience": "अनुभव",
         "education": "शिक्षा",
+        "languages": "प्रोग्रामिंग भाषाएँ",
         "projects": "प्रोजेक्ट",
         "contact": "संपर्क करें"
     },
