@@ -5,7 +5,7 @@
     "": {
       "name": "meenbeese.github.io",
       "dependencies": {
-        "@lucide/svelte": "^1.49.0",
+        "@mingcute/svelte": "^3.0.2",
         "clsx": "^2.1.1",
         "svelte-i18n": "^4.0.1",
         "tailwind-merge": "^3.7.0",
@@ -96,7 +96,9 @@
 
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.31", "", { "dependencies": { "@jridgewell/resolve-uri": "3.1.2", "@jridgewell/sourcemap-codec": "1.5.5" } }, "sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw=="],
 
-    "@lucide/svelte": ["@lucide/svelte@1.49.0", "", { "peerDependencies": { "svelte": "^5" } }, "sha512-RFH6Vx7dj6hshcBa1qJ0nKAWwkh385jJbDwF1WVg7yflC89310BsA55SEmJnaSRfr03dAyZMMLUC1EMGBu0Z0Q=="],
+    "@mingcute/icons": ["@mingcute/icons@3.0.2", "", {}, "sha512-NuDZuZy0B/MmrdoVVOodOURS1qPqgcdSHFPKSG9gPEF6/dr0+zm5pfJs0U7Yta5jjoCdX0WZcVbZOov2tMMPTA=="],
+
+    "@mingcute/svelte": ["@mingcute/svelte@3.0.2", "", { "dependencies": { "@mingcute/icons": "3.0.2" }, "peerDependencies": { "svelte": ">=5.20.0" } }, "sha512-KlGMNseId/NrwKxX/7tiyYCsRJ9MmVzdg/FvzE83/NzIrQklyzCAt4lK4XMQ6gRnLtd+irb+BBHqdCkEINYmng=="],
 
     "@oxc-project/types": ["@oxc-project/types@0.151.0", "", {}, "sha512-J1yXrIlNDZVzE3ada310xeAw7nH8yCAyLPuUIsjKatFPmfn5bS1oW+cM+QsGOtVWd5nhSpbwZWx/rue+r5Z+PA=="],
 

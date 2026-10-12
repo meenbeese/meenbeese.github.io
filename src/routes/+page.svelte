@@ -2,15 +2,21 @@
     import { onMount } from 'svelte';
     import { _, locale } from 'svelte-i18n';
 
-    import Check from '@lucide/svelte/icons/check';
-    import ChevronLeft from '@lucide/svelte/icons/chevron-left';
-    import ChevronRight from '@lucide/svelte/icons/chevron-right';
-    import Copy from '@lucide/svelte/icons/copy';
-    import Globe from '@lucide/svelte/icons/globe';
-    import Menu from '@lucide/svelte/icons/menu';
-    import Moon from '@lucide/svelte/icons/moon';
-    import Sun from '@lucide/svelte/icons/sun';
-    import X from '@lucide/svelte/icons/x';
+    import {
+        BriefcaseRegular,
+        CheckRegular,
+        CloseRegular,
+        CopyRegular,
+        EarthRegular,
+        LeftRegular,
+        MailRegular,
+        MenuRegular,
+        MoonRegular,
+        MortarboardRegular,
+        RightRegular,
+        SunRegular,
+    } from '@mingcute/svelte/core-regular';
+    import { LinkedinFilled } from '@mingcute/svelte/core-filled';
 
     import MouseGlow from '$lib/components/MouseGlow.svelte';
     import T from '$lib/components/T.svelte';
@@ -273,9 +279,9 @@
                 aria-label="Toggle dark mode"
             >
                 {#if darkMode}
-                    <Sun size={18} />
+                    <SunRegular size={18} />
                 {:else}
-                    <Moon size={18} />
+                    <MoonRegular size={18} />
                 {/if}
             </button>
             <button
@@ -284,7 +290,7 @@
                 class="flex h-10 w-10 items-center justify-center rounded-full border border-outline/20 hover:bg-surface-variant transition-colors duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 aria-label="Toggle language"
             >
-                <Globe size={18} />
+                <EarthRegular size={18} />
             </button>
 
             <!-- DROPDOWN -->
@@ -301,7 +307,7 @@
                             <span>{lang.label}</span>
 
                             {#if $locale === lang.code}
-                                <Check size={16} />
+                                <CheckRegular size={16} />
                             {/if}
                         </button>
                     {/each}
@@ -326,9 +332,9 @@
                 aria-label="Toggle dark mode"
             >
                 {#if darkMode}
-                    <Sun size={18} />
+                    <SunRegular size={18} />
                 {:else}
-                    <Moon size={18} />
+                    <MoonRegular size={18} />
                 {/if}
             </button>
             <button
@@ -338,7 +344,7 @@
                 aria-label="Toggle language"
                 aria-expanded={langOpen}
             >
-                <Globe size={18} />
+                <EarthRegular size={18} />
             </button>
 
             <button
@@ -349,9 +355,9 @@
                 aria-expanded={open}
             >
                 {#if open}
-                    <X size={18} />
+                    <CloseRegular size={18} />
                 {:else}
-                    <Menu size={18} />
+                    <MenuRegular size={18} />
                 {/if}
             </button>
         </div>
@@ -370,7 +376,7 @@
                     <span>{lang.label}</span>
 
                     {#if $locale === lang.code}
-                        <Check size={16} />
+                        <CheckRegular size={16} />
                     {/if}
                 </button>
             {/each}
@@ -474,15 +480,7 @@
                         onclick={() => window.open(s.url, '_blank')}
                         aria-label={s.name}
                     >
-                        <img
-                            src={s.img}
-                            width="512"
-                            height="512"
-                            loading="lazy"
-                            class="h-5 w-5 dark:invert"
-                            alt=""
-                            aria-hidden="true"
-                        />
+                        <s.icon size={22} />
                     </button>
                 {/each}
             </div>
@@ -526,15 +524,7 @@
                     <div
                         class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10"
                     >
-                        <img
-                            src="/experience.png"
-                            width="500"
-                            height="500"
-                            loading="lazy"
-                            class="h-5 w-5 dark:invert"
-                            alt=""
-                            aria-hidden="true"
-                        />
+                        <BriefcaseRegular size={20} />
                     </div>
 
                     <div>
@@ -554,15 +544,7 @@
                     <div
                         class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10"
                     >
-                        <img
-                            src="/education.png"
-                            width="500"
-                            height="500"
-                            loading="lazy"
-                            class="h-5 w-5 dark:invert"
-                            alt=""
-                            aria-hidden="true"
-                        />
+                        <MortarboardRegular size={20} />
                     </div>
 
                     <div>
@@ -611,15 +593,7 @@
                         <div
                             class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10"
                         >
-                            <img
-                                src="/checkmark.png"
-                                width="1000"
-                                height="1000"
-                                loading="lazy"
-                                class="h-5 w-5 dark:invert"
-                                alt=""
-                                aria-hidden="true"
-                            />
+                            <CheckRegular size={20} />
                         </div>
 
                         <div class="text-left">
@@ -649,15 +623,7 @@
                         <div
                             class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10"
                         >
-                            <img
-                                src="/checkmark.png"
-                                width="1000"
-                                height="1000"
-                                loading="lazy"
-                                class="h-5 w-5 dark:invert"
-                                alt=""
-                                aria-hidden="true"
-                            />
+                            <CheckRegular size={20} />
                         </div>
 
                         <div class="text-left">
@@ -694,7 +660,7 @@
             aria-label="Scroll languages left"
             class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-outline/20 transition-colors duration-300 ease-out hover:bg-surface-variant disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-transparent dark:disabled:hover:bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
         >
-            <ChevronLeft size={20} />
+            <LeftRegular size={20} />
         </button>
 
         <div
@@ -734,7 +700,7 @@
             aria-label="Scroll languages right"
             class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-outline/20 transition-colors duration-300 ease-out hover:bg-surface-variant disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-transparent dark:disabled:hover:bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
         >
-            <ChevronRight size={20} />
+            <RightRegular size={20} />
         </button>
     </div>
     <div class="mx-auto mt-3 max-w-5xl md:hidden" aria-hidden="true">
@@ -861,15 +827,7 @@
             <div
                 class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10"
             >
-                <img
-                    src="/email.png"
-                    width="1000"
-                    height="1000"
-                    loading="lazy"
-                    class="h-5 w-5 dark:invert"
-                    alt=""
-                    aria-hidden="true"
-                />
+                <MailRegular size={20} />
             </div>
 
             <a
@@ -908,9 +866,9 @@
                     <T label="contact.copied" />
                 </span>
                 {#if copied === 'email'}
-                    <Check size={16} />
+                    <CheckRegular size={16} />
                 {:else}
-                    <Copy size={16} />
+                    <CopyRegular size={16} />
                 {/if}
             </button>
         </div>
@@ -923,15 +881,7 @@
             <div
                 class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10"
             >
-                <img
-                    src="/linkedin.png"
-                    width="512"
-                    height="512"
-                    loading="lazy"
-                    class="h-5 w-5 dark:invert"
-                    alt=""
-                    aria-hidden="true"
-                />
+                <LinkedinFilled size={22} />
             </div>
 
             <a
@@ -972,9 +922,9 @@
                     <T label="contact.copied" />
                 </span>
                 {#if copied === 'linkedin'}
-                    <Check size={16} />
+                    <CheckRegular size={16} />
                 {:else}
-                    <Copy size={16} />
+                    <CopyRegular size={16} />
                 {/if}
             </button>
         </div>

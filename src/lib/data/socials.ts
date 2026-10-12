@@ -1,12 +1,14 @@
+import { GithubFilled, LinkedinFilled } from '@mingcute/svelte/core-filled';
+
 export const socials = [
     {
         name: 'LinkedIn',
-        img: '/linkedin.png',
+        icon: LinkedinFilled,
         url: 'https://ca.linkedin.com/in/kuzey-bilgin-66a7b3213/',
     },
     {
         name: 'GitHub',
-        img: '/github.png',
+        icon: GithubFilled,
         url: 'https://github.com/meenbeese/',
     },
 ];
