@@ -18,21 +18,16 @@
     } from '@mingcute/svelte/core-regular';
     import { LinkedinFilled } from '@mingcute/svelte/core-filled';
 
-    import MouseGlow from '$lib/components/MouseGlow.svelte';
-    import T from '$lib/components/T.svelte';
-    import { navLinks } from '$lib/data/nav';
-    import { projects } from '$lib/data/projects';
-    import { frontendSkills } from '$lib/data/skills';
-    import { backendSkills } from '$lib/data/skills';
-    import { locales } from '$lib/data/langs';
-    import { languages } from '$lib/data/programming';
-    import { socials } from '$lib/data/socials';
-    import {
-        setupI18n,
-        restoreLocale,
-        setLocale,
-        type Locale,
-    } from '$lib/i18n';
+    import MouseGlow from '#lib/components/MouseGlow.svelte';
+    import T from '#lib/components/T.svelte';
+    import { navLinks } from '#lib/data/nav.js';
+    import { projects } from '#lib/data/projects.js';
+    import { frontendSkills } from '#lib/data/skills.js';
+    import { backendSkills } from '#lib/data/skills.js';
+    import { locales } from '#lib/data/langs.js';
+    import { languages } from '#lib/data/programming.js';
+    import { socials } from '#lib/data/socials.js';
+    import { setupI18n, restoreLocale, setLocale, type Locale } from '#lib/i18n/index.js';
 
     let open = $state(false);
     let darkMode = $state(false);
@@ -75,8 +70,7 @@
         canScrollPrev = el.scrollLeft > 4;
         canScrollNext = el.scrollLeft + el.clientWidth < el.scrollWidth - 4;
         const max = el.scrollWidth - el.clientWidth;
-        langProgress =
-            max > 0 ? Math.min(1, Math.max(0, el.scrollLeft / max)) : 0;
+        langProgress = max > 0 ? Math.min(1, Math.max(0, el.scrollLeft / max)) : 0;
     }
 
     function scrollLangs(dir: 1 | -1) {
@@ -84,9 +78,7 @@
         if (!el) return;
         const tile = el.querySelector(':scope > a') as HTMLElement | null;
         const gap = 12;
-        const step = tile
-            ? tile.offsetWidth + gap
-            : Math.round(el.clientWidth * 0.8);
+        const step = tile ? tile.offsetWidth + gap : Math.round(el.clientWidth * 0.8);
         el.scrollBy({ left: dir * step, behavior: 'smooth' });
     }
 
@@ -103,18 +95,15 @@
         const py = (e.clientY - rect.top) / rect.height - 0.5;
         const rotateY = px * 18;
         const rotateX = -py * 18;
-        el.style.transition =
-            'transform 0.08s ease-out, box-shadow 0.3s ease-out';
+        el.style.transition = 'transform 0.08s ease-out, box-shadow 0.3s ease-out';
         el.style.transform = `perspective(700px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.04, 1.04, 1.04)`;
     }
 
     function resetPfpTilt() {
         const el = pfpWrap;
         if (!el) return;
-        el.style.transition =
-            'transform 0.5s ease-out, box-shadow 0.3s ease-out';
-        el.style.transform =
-            'perspective(700px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        el.style.transition = 'transform 0.5s ease-out, box-shadow 0.3s ease-out';
+        el.style.transform = 'perspective(700px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
     }
 
     $effect(() => {
@@ -164,9 +153,7 @@
         restoreLocale();
 
         const stored = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia(
-            '(prefers-color-scheme: dark)',
-        ).matches;
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         if (stored === 'dark' || (!stored && prefersDark)) {
             darkMode = true;
             document.documentElement.classList.add('dark');
@@ -221,20 +208,14 @@
         property="og:description"
         content="Mathematics major and Computer Science minor in Toronto, drawn to where the two fields overlap — cryptography, graph theory, and information theory."
     />
-    <meta
-        property="og:image"
-        content="https://kuzey.is-a.dev/profile-pic.png"
-    />
+    <meta property="og:image" content="https://kuzey.is-a.dev/profile-pic.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Kuzey Bilgin — Fullstack Developer" />
     <meta
         name="twitter:description"
         content="Mathematics major and Computer Science minor in Toronto, drawn to where the two fields overlap — cryptography, graph theory, and information theory."
     />
-    <meta
-        name="twitter:image"
-        content="https://kuzey.is-a.dev/profile-pic.png"
-    />
+    <meta name="twitter:image" content="https://kuzey.is-a.dev/profile-pic.png" />
 </svelte:head>
 
 <MouseGlow />
@@ -257,9 +238,7 @@
                     <li>
                         <a
                             href={`#${link.id}`}
-                            aria-current={activeSection === link.id
-                                ? 'true'
-                                : undefined}
+                            aria-current={activeSection === link.id ? 'true' : undefined}
                             class={`rounded-full px-4 py-2 text-sm font-medium transition-colors duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
                                 activeSection === link.id
                                     ? 'bg-surface-variant text-on-surface'
@@ -432,9 +411,7 @@
 
         <!-- TEXT -->
         <div class="text-center md:text-left max-w-xl">
-            <p
-                class="text-lg font-medium tracking-wide text-gray-500 dark:text-gray-400"
-            >
+            <p class="text-lg font-medium tracking-wide text-gray-500 dark:text-gray-400">
                 <T label="profile.greeting" />
             </p>
 
@@ -449,9 +426,7 @@
             </p>
 
             <!-- BUTTONS -->
-            <div
-                class="flex flex-wrap gap-4 md:gap-6 mt-8 justify-center md:justify-start"
-            >
+            <div class="flex flex-wrap gap-4 md:gap-6 mt-8 justify-center md:justify-start">
                 <button
                     type="button"
                     class="px-6 py-3 rounded-full bg-gray-200 dark:bg-zinc-800 text-gray-900 dark:text-gray-100 font-medium text-base hover:bg-gray-300 dark:hover:bg-zinc-700 transition-colors duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
@@ -496,9 +471,7 @@
         <T label="sections.about" />
     </h2>
 
-    <div
-        class="mx-auto flex max-w-5xl flex-col items-center gap-10 md:flex-row md:items-stretch"
-    >
+    <div class="mx-auto flex max-w-5xl flex-col items-center gap-10 md:flex-row md:items-stretch">
         <!-- IMAGE -->
         <div
             class="relative h-72 w-72 shrink-0 overflow-hidden rounded-3xl border border-outline/20 bg-surface shadow-sm md:h-auto md:min-h-72"
@@ -580,9 +553,7 @@
 
     <div class="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2">
         <!-- FRONTEND -->
-        <article
-            class="rounded-2xl border border-outline/20 bg-surface p-6 shadow-sm"
-        >
+        <article class="rounded-2xl border border-outline/20 bg-surface p-6 shadow-sm">
             <h3 class="mb-6 text-center text-xl font-semibold text-on-surface">
                 <T label="experience.frontend" />
             </h3>
@@ -610,9 +581,7 @@
         </article>
 
         <!-- BACKEND -->
-        <article
-            class="rounded-2xl border border-outline/20 bg-surface p-6 shadow-sm"
-        >
+        <article class="rounded-2xl border border-outline/20 bg-surface p-6 shadow-sm">
             <h3 class="mb-6 text-center text-xl font-semibold text-on-surface">
                 <T label="experience.backend" />
             </h3>
@@ -650,9 +619,7 @@
     </h2>
 
     <!-- Mobile carousel -->
-    <div
-        class="mx-auto flex max-w-5xl items-center justify-center gap-3 md:hidden"
-    >
+    <div class="mx-auto flex max-w-5xl items-center justify-center gap-3 md:hidden">
         <button
             type="button"
             onclick={() => scrollLangs(-1)}
@@ -685,8 +652,7 @@
                         height="48"
                         class="h-12 w-12 object-contain"
                     />
-                    <span
-                        class="max-w-full truncate text-xs font-medium text-on-surface-variant"
+                    <span class="max-w-full truncate text-xs font-medium text-on-surface-variant"
                         >{lang.name}</span
                     >
                 </a>
@@ -704,9 +670,7 @@
         </button>
     </div>
     <div class="mx-auto mt-3 max-w-5xl md:hidden" aria-hidden="true">
-        <div
-            class="mx-auto h-1 w-24 overflow-hidden rounded-full bg-surface-variant"
-        >
+        <div class="mx-auto h-1 w-24 overflow-hidden rounded-full bg-surface-variant">
             <div
                 class="h-full w-8 rounded-full bg-on-surface-variant transition-transform duration-300 ease-out"
                 style={`transform: translateX(${Math.round(langProgress * 64)}px)`}
@@ -715,9 +679,7 @@
     </div>
 
     <!-- Desktop grid: all 8 visible, no scroll -->
-    <div
-        class="mx-auto hidden max-w-5xl gap-3 md:grid md:grid-cols-4 lg:grid-cols-8"
-    >
+    <div class="mx-auto hidden max-w-5xl gap-3 md:grid md:grid-cols-4 lg:grid-cols-8">
         {#each languages as lang}
             <a
                 href={lang.url}
@@ -735,8 +697,7 @@
                     height="48"
                     class="h-12 w-12 object-contain md:h-14 md:w-14"
                 />
-                <span
-                    class="max-w-full truncate text-xs font-medium text-on-surface-variant"
+                <span class="max-w-full truncate text-xs font-medium text-on-surface-variant"
                     >{lang.name}</span
                 >
             </a>
@@ -752,18 +713,14 @@
         <T label="sections.projects" />
     </h2>
 
-    <div
-        class="mx-auto grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
-    >
+    <div class="mx-auto grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {#each projects as project}
             <article
                 class="group flex flex-col overflow-hidden rounded-2xl border border-outline/20 bg-surface
                shadow-sm transition duration-300 ease-out motion-safe:hover:-translate-y-1 hover:shadow-md hover:border-outline/50"
             >
                 <!-- Image -->
-                <div
-                    class="relative h-44 w-full overflow-hidden bg-surface-variant"
-                >
+                <div class="relative h-44 w-full overflow-hidden bg-surface-variant">
                     <img
                         src={project.img}
                         width="1080"
@@ -788,8 +745,7 @@
                      text-on-surface-variant transition-colors duration-300 ease-out
                      hover:bg-surface-variant hover:text-on-surface
                      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                            onclick={() =>
-                                window.open(project.github, '_blank')}
+                            onclick={() => window.open(project.github, '_blank')}
                         >
                             GitHub
                         </button>
@@ -816,9 +772,7 @@
         <T label="sections.contact" />
     </h2>
 
-    <div
-        class="mx-auto flex max-w-2xl flex-col gap-4 md:flex-row md:justify-center"
-    >
+    <div class="mx-auto flex max-w-2xl flex-col gap-4 md:flex-row md:justify-center">
         <div
             class="group relative flex flex-1 items-center gap-4 rounded-2xl border border-outline/20 bg-surface px-5 py-4
              shadow-sm transition duration-300 ease-out motion-safe:hover:-translate-y-1 hover:shadow-md hover:border-outline/50
@@ -942,13 +896,9 @@
 </section>
 
 <!-- FOOTER -->
-<footer
-    class="border-t border-outline/20 bg-surface-variant/20 py-12 text-center"
->
+<footer class="border-t border-outline/20 bg-surface-variant/20 py-12 text-center">
     <nav aria-label="Footer navigation">
-        <ul
-            class="mx-auto flex max-w-3xl flex-wrap justify-center gap-2 sm:gap-4"
-        >
+        <ul class="mx-auto flex max-w-3xl flex-wrap justify-center gap-2 sm:gap-4">
             {#each navLinks as link}
                 <li>
                     <a

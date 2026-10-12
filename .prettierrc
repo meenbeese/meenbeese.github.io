@@ -6,7 +6,7 @@
     "insertPragma": false,
     "jsxSingleQuote": true,
     "objectWrap": "collapse",
-    "printWidth": 80,
+    "printWidth": 100,
     "proseWrap": "preserve",
     "quoteProps": "as-needed",
     "requirePragma": false,

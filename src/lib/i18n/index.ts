@@ -10,15 +10,11 @@ import zh from './locales/zh.json';
 
 export type Locale = 'en' | 'es' | 'fr' | 'hi' | 'ja' | 'ko' | 'pt' | 'zh';
 
-export const locales = { en, es, fr, hi, ja, ko, pt, zh } satisfies Record<
-    Locale,
-    object
->;
+export const locales = { en, es, fr, hi, ja, ko, pt, zh } satisfies Record<Locale, object>;
 
 const STORAGE_KEY = 'language';
 
-const isLocale = (value: string | null): value is Locale =>
-    Object.hasOwn(locales, value ?? '');
+const isLocale = (value: string | null): value is Locale => Object.hasOwn(locales, value ?? '');
 
 let initialised = false;
 

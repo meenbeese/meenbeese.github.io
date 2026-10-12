@@ -63,9 +63,7 @@
             if (!frame) frame = requestAnimationFrame(flush);
         };
 
-        window.addEventListener('mousemove', handleMouseMove, {
-            passive: true,
-        });
+        window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
