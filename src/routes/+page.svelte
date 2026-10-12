@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte';
+    import { cubicOut } from 'svelte/easing';
     import { _, locale } from 'svelte-i18n';
 
     import {
@@ -8,15 +9,18 @@
         CloseRegular,
         CopyRegular,
         EarthRegular,
+        FullscreenExitRegular,
+        FullscreenRegular,
         LeftRegular,
         MailRegular,
         MenuRegular,
         MoonRegular,
         MortarboardRegular,
         RightRegular,
+        SparklesRegular,
         SunRegular,
     } from '@mingcute/svelte/core-regular';
-    import { LinkedinFilled } from '@mingcute/svelte/core-filled';
+    import { DiscordFilled, LinkedinFilled } from '@mingcute/svelte/core-filled';
 
     import MouseGlow from '#lib/components/MouseGlow.svelte';
     import T from '#lib/components/T.svelte';
@@ -32,16 +36,60 @@
     let open = $state(false);
     let darkMode = $state(false);
     let langOpen = $state(false);
+    let glowEnabled = $state(true);
     let activeSection = $state('profile');
-    let copied: 'email' | 'linkedin' | null = $state(null);
+    let copied: 'email' | 'linkedin' | 'discord' | null = $state(null);
+    let expandedIndex = $state<number | null>(null);
+
+    type RevealOrigin = 'left' | 'center' | 'right';
+
+    let revealOrigin = $state<RevealOrigin>('left');
+
+    function originFor(index: number): RevealOrigin {
+        if (index <= 0) return 'left';
+        if (index >= projects.length - 1) return 'right';
+        return 'center';
+    }
+
+    function toggleProject(index: number) {
+        if (expandedIndex === index) {
+            expandedIndex = null;
+        } else {
+            expandedIndex = index;
+            revealOrigin = originFor(index);
+        }
+    }
+
+    let expandedProject = $derived(
+        expandedIndex !== null ? (projects[expandedIndex] ?? null) : null,
+    );
+
+    let filledCells = $derived(
+        projects.map((_, idx) => idx).filter((idx) => idx !== expandedIndex),
+    );
+
+    function reveal(_node: Element, { origin = 'left' as RevealOrigin, duration = 300 } = {}) {
+        return {
+            duration,
+            easing: cubicOut,
+            css: (t: number) => {
+                const p = (1 - t) * 100;
+                if (origin === 'right') return `clip-path: inset(0 0 0 ${p}%);`;
+                if (origin === 'center') return `clip-path: inset(0 ${p / 2}% 0 ${p / 2}%);`;
+                return `clip-path: inset(0 ${p}% 0 0);`;
+            },
+        };
+    }
 
     const emailAddress = 'kuzeybilgin@proton.me';
     const linkedinUrl =
         socials.find((s) => s.name === 'LinkedIn')?.url ??
         'https://ca.linkedin.com/in/kuzey-bilgin-66a7b3213/';
     const linkedinHandle = 'in/kuzey-bilgin-66a7b3213';
+    const discordUrl = 'https://discord.com/users/781235909776506890';
+    const discordHandle = '781235909776506890';
 
-    async function copyText(text: string, which: 'email' | 'linkedin') {
+    async function copyText(text: string, which: 'email' | 'linkedin' | 'discord') {
         try {
             await navigator.clipboard.writeText(text);
         } catch {
@@ -140,6 +188,11 @@
         }
     }
 
+    function toggleGlow() {
+        glowEnabled = !glowEnabled;
+        localStorage.setItem('glow', glowEnabled ? 'on' : 'off');
+    }
+
     function changeLanguage(code: Locale) {
         setLocale(code);
         langOpen = false;
@@ -161,6 +214,8 @@
             darkMode = false;
             document.documentElement.classList.remove('dark');
         }
+
+        glowEnabled = localStorage.getItem('glow') !== 'off';
 
         const ids = ['profile', ...navLinks.map((l) => l.id)];
         const sections = ids
@@ -186,9 +241,23 @@
         };
         window.addEventListener('hashchange', onHashChange);
 
+        const onKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') expandedIndex = null;
+        };
+        window.addEventListener('keydown', onKeyDown);
+
+        const mobileQuery = window.matchMedia('(max-width: 639px)');
+        const syncMobile = () => {
+            if (mobileQuery.matches) expandedIndex = null;
+        };
+        syncMobile();
+        mobileQuery.addEventListener('change', syncMobile);
+
         return () => {
             observer.disconnect();
             window.removeEventListener('hashchange', onHashChange);
+            window.removeEventListener('keydown', onKeyDown);
+            mobileQuery.removeEventListener('change', syncMobile);
         };
     });
 </script>
@@ -218,7 +287,7 @@
     <meta name="twitter:image" content="https://kuzey.is-a.dev/profile-pic.png" />
 </svelte:head>
 
-<MouseGlow />
+<MouseGlow enabled={glowEnabled} />
 
 <!-- NAV WRAPPER -->
 <header
@@ -270,6 +339,17 @@
                 aria-label="Toggle language"
             >
                 <EarthRegular size={18} />
+            </button>
+            <button
+                type="button"
+                onclick={toggleGlow}
+                class="flex h-10 w-10 items-center justify-center rounded-full border border-outline/20 hover:bg-surface-variant transition-colors duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                aria-label="Toggle cursor glow"
+                aria-pressed={glowEnabled}
+            >
+                <span class={glowEnabled ? '' : 'opacity-40'}>
+                    <SparklesRegular size={18} />
+                </span>
             </button>
 
             <!-- DROPDOWN -->
@@ -713,14 +793,35 @@
         <T label="sections.projects" />
     </h2>
 
-    <div class="mx-auto grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {#each projects as project}
+    <div
+        class="relative mx-auto grid max-w-5xl grid-cols-1 items-start gap-6 sm:grid-cols-2 lg:grid-cols-3"
+    >
+        {#snippet sectionBody(project: (typeof projects)[number], which: 'what' | 'how')}
+            <div>
+                {#if which === 'what'}
+                    <h4 class="text-sm font-semibold text-on-surface">
+                        <T label="projects.whatItDoes" />
+                    </h4>
+                    <p class="mt-1 text-sm leading-relaxed text-on-surface-variant">
+                        <T label={project.detailsKey} />
+                    </p>
+                {:else}
+                    <h4 class="text-sm font-semibold text-on-surface">
+                        <T label="projects.howItsMade" />
+                    </h4>
+                    <p class="mt-1 text-sm leading-relaxed text-on-surface-variant">
+                        <T label="projects.detailsPlaceholder" />
+                    </p>
+                {/if}
+            </div>
+        {/snippet}
+        {#each projects as project, i}
+            {@const expanded = expandedIndex === i}
             <article
-                class="group flex flex-col overflow-hidden rounded-2xl border border-outline/20 bg-surface
-               shadow-sm transition duration-300 ease-out motion-safe:hover:-translate-y-1 hover:shadow-md hover:border-outline/50"
+                class={`group relative flex flex-col overflow-hidden rounded-2xl border border-outline/20 bg-surface
+               shadow-sm transition duration-300 ease-out ${expanded ? 'border-outline/50 shadow-md' : 'motion-safe:hover:-translate-y-1 hover:shadow-md hover:border-outline/50'}`}
             >
-                <!-- Image -->
-                <div class="relative h-44 w-full overflow-hidden bg-surface-variant">
+                <div class="relative h-44 w-full shrink-0 overflow-hidden bg-surface-variant">
                     <img
                         src={project.img}
                         width="1080"
@@ -731,13 +832,33 @@
                     />
                 </div>
 
-                <!-- Content -->
                 <div class="flex flex-1 flex-col p-5 text-center">
-                    <h3 class="text-lg font-semibold text-on-surface">
-                        <T label={project.titleKey} />
-                    </h3>
+                    <div class="flex items-center justify-center gap-1">
+                        <h3 class="text-lg font-semibold text-on-surface">
+                            <T label={project.titleKey} />
+                        </h3>
 
-                    <!-- Actions -->
+                        <button
+                            type="button"
+                            onclick={() => toggleProject(i)}
+                            aria-expanded={expanded}
+                            aria-controls="project-details"
+                            aria-label={expanded
+                                ? $_('projects.hideDetails')
+                                : $_('projects.showDetails')}
+                            title={expanded
+                                ? $_('projects.hideDetails')
+                                : $_('projects.showDetails')}
+                            class="hidden h-8 w-8 shrink-0 items-center justify-center rounded-full text-on-surface-variant transition-colors duration-300 ease-out hover:bg-surface-variant hover:text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:flex"
+                        >
+                            {#if expanded}
+                                <FullscreenExitRegular size={20} />
+                            {:else}
+                                <FullscreenRegular size={20} />
+                            {/if}
+                        </button>
+                    </div>
+
                     <div class="mt-auto flex justify-center gap-3 pt-5">
                         <button
                             type="button"
@@ -761,6 +882,55 @@
                 </div>
             </article>
         {/each}
+        {#if expandedProject}
+            <div
+                transition:reveal={{ origin: revealOrigin, duration: 300 }}
+                class="pointer-events-none absolute inset-0 z-10 grid grid-cols-1 grid-rows-3 gap-6 sm:grid-cols-2 sm:grid-rows-2 lg:hidden"
+            >
+                {#each [0, 1, 2] as cell}
+                    {#if cell === expandedIndex}
+                        <div></div>
+                    {:else}
+                        {@const rank = filledCells.indexOf(cell)}
+                        <div
+                            class="pointer-events-auto flex flex-col justify-center gap-3 rounded-2xl border border-outline/20 bg-surface p-5 text-left shadow-md"
+                        >
+                            {#if rank === 0}
+                                {@render sectionBody(expandedProject, 'what')}
+                            {:else}
+                                {@render sectionBody(expandedProject, 'how')}
+                            {/if}
+                        </div>
+                    {/if}
+                {/each}
+            </div>
+            <div
+                id="project-details"
+                transition:reveal={{ origin: revealOrigin, duration: 300 }}
+                class="pointer-events-none absolute inset-0 z-10 hidden gap-6 lg:grid lg:grid-cols-3 lg:grid-rows-1"
+            >
+                {#if expandedIndex === 1}
+                    <div
+                        class="pointer-events-auto flex flex-col justify-center rounded-2xl border border-outline/20 bg-surface p-5 text-left shadow-md"
+                    >
+                        {@render sectionBody(expandedProject, 'what')}
+                    </div>
+                    <div></div>
+                    <div
+                        class="pointer-events-auto col-start-3 flex flex-col justify-center gap-3 rounded-2xl border border-outline/20 bg-surface p-5 text-left shadow-md"
+                    >
+                        {@render sectionBody(expandedProject, 'how')}
+                    </div>
+                {:else}
+                    <div
+                        class={`pointer-events-auto grid grid-cols-2 content-center gap-6 rounded-2xl border border-outline/20 bg-surface p-6 text-left shadow-md ${expandedIndex === 0 ? 'col-start-2 col-end-4' : 'col-start-1 col-end-3'}`}
+                    >
+                        {@render sectionBody(expandedProject, 'what')}
+                        {@render sectionBody(expandedProject, 'how')}
+                    </div>
+                {/if}
+            </div>
+        {/if}
     </div>
 </section>
 
@@ -772,7 +942,7 @@
         <T label="sections.contact" />
     </h2>
 
-    <div class="mx-auto flex max-w-2xl flex-col gap-4 md:flex-row md:justify-center">
+    <div class="mx-auto flex max-w-5xl flex-col gap-4 md:flex-row md:justify-center">
         <div
             class="group relative flex flex-1 items-center gap-4 rounded-2xl border border-outline/20 bg-surface px-5 py-4
              shadow-sm transition duration-300 ease-out motion-safe:hover:-translate-y-1 hover:shadow-md hover:border-outline/50
@@ -876,6 +1046,62 @@
                     <T label="contact.copied" />
                 </span>
                 {#if copied === 'linkedin'}
+                    <CheckRegular size={16} />
+                {:else}
+                    <CopyRegular size={16} />
+                {/if}
+            </button>
+        </div>
+
+        <div
+            class="group relative flex flex-1 items-center gap-4 rounded-2xl border border-outline/20 bg-surface px-5 py-4
+             shadow-sm transition duration-300 ease-out motion-safe:hover:-translate-y-1 hover:shadow-md hover:border-outline/50
+             focus-within:ring-2 focus-within:ring-primary"
+        >
+            <div
+                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10"
+            >
+                <DiscordFilled size={22} />
+            </div>
+
+            <a
+                href={discordUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="min-w-0 flex-1 text-left rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary
+                 before:absolute before:inset-0 before:rounded-2xl before:content-['']"
+            >
+                <p class="text-sm text-on-surface-variant">
+                    <T label="contact.discord" />
+                </p>
+                <p
+                    class="truncate font-medium text-on-surface group-hover:text-primary transition-colors duration-300 ease-out select-all"
+                >
+                    {discordHandle}
+                </p>
+            </a>
+
+            <button
+                type="button"
+                onclick={(e) => {
+                    e.stopPropagation();
+                    copyText(discordUrl, 'discord');
+                }}
+                aria-label={$_('contact.copyDiscord')}
+                title={$_('contact.copyDiscord')}
+                class="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-on-surface-variant transition-colors duration-300 ease-out hover:bg-surface-variant hover:text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            >
+                <span
+                    aria-hidden="true"
+                    class={`pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 rounded-full bg-on-surface px-2.5 py-1 text-xs font-medium whitespace-nowrap text-surface shadow-md transition-all duration-200 ${
+                        copied === 'discord'
+                            ? 'translate-y-0 opacity-100'
+                            : 'pointer-events-none translate-y-1 opacity-0'
+                    }`}
+                >
+                    <T label="contact.copied" />
+                </span>
+                {#if copied === 'discord'}
                     <CheckRegular size={16} />
                 {:else}
                     <CopyRegular size={16} />

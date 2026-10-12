@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
+    const { enabled = true } = $props<{ enabled?: boolean }>();
 
     let glow = $state<HTMLDivElement | null>(null);
     let finePointer = $state(true);
@@ -16,8 +16,8 @@
         return () => query.removeEventListener('change', onChange);
     });
 
-    onMount(() => {
-        if (!finePointer || !glow) return;
+    $effect(() => {
+        if (!finePointer || !enabled || !glow) return;
 
         let frame = 0;
         let nextX = 0;
@@ -25,9 +25,6 @@
         let curX = 0;
         let curY = 0;
         let started = false;
-
-        // Center the element on the cursor using its own measured size.
-        const offset = glow ? glow.offsetWidth / 2 : 160;
 
         // Coalesce every pointer event into a single write per frame.
         const flush = () => {
@@ -37,7 +34,8 @@
 
             glow?.style.setProperty(
                 'transform',
-                `translate3d(${curX - offset}px, ${curY - offset}px, 0)`,
+                // 160 = half of the fixed 320px glow size in CSS.
+                `translate3d(${curX - 160}px, ${curY - 160}px, 0)`,
             );
 
             frame =
@@ -72,7 +70,7 @@
     });
 </script>
 
-{#if finePointer}
+{#if finePointer && enabled}
     <div class="mouse-glow" aria-hidden="true">
         <div class="glow" bind:this={glow}></div>
     </div>

@@ -34,9 +34,11 @@
         "email": "Email",
         "emailMe": "Email Me",
         "linkedin": "LinkedIn",
+        "discord": "Discord",
         "myLinkedin": "My LinkedIn",
         "copyEmail": "Copy email address",
         "copyLink": "Copy LinkedIn URL",
+        "copyDiscord": "Copy Discord profile URL",
         "copied": "Copied",
         "location": "Toronto (EST) · I usually reply within a day"
     },
@@ -49,7 +51,15 @@
         "one": "Project One",
         "two": "Project Two",
         "three": "Project Three",
-        "live": "Live"
+        "live": "Live",
+        "showDetails": "Show details",
+        "hideDetails": "Hide details",
+        "whatItDoes": "What it does",
+        "howItsMade": "How it's implemented",
+        "detailsPlaceholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+        "oneDetails": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "twoDetails": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "threeDetails": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     },
     "footer": { "rights": "© 2026 Kuzey Bilgin. All rights reserved." }
 }
