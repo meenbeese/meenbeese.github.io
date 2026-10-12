@@ -27,7 +27,7 @@
         let started = false;
 
         // Center the element on the cursor using its own measured size.
-        const offset = glow ? glow.offsetWidth / 2 : 110;
+        const offset = glow ? glow.offsetWidth / 2 : 160;
 
         // Coalesce every pointer event into a single write per frame.
         const flush = () => {
@@ -93,8 +93,8 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 220px;
-        height: 220px;
+        width: 320px;
+        height: 320px;
         border-radius: 9999px;
         will-change: transform;
 
@@ -106,12 +106,12 @@
 
         background: radial-gradient(
             circle,
-            rgba(255, 226, 150, 0.55) 0%,
-            rgba(255, 205, 110, 0.34) 35%,
-            rgba(255, 190, 90, 0.12) 60%,
-            transparent 75%
+            rgba(255, 226, 150, 0.35) 0%,
+            rgba(255, 205, 110, 0.2) 45%,
+            rgba(255, 190, 90, 0.08) 70%,
+            transparent 85%
         );
-        filter: blur(24px);
+        filter: blur(40px);
 
         mix-blend-mode: plus-lighter;
     }
@@ -119,10 +119,10 @@
     :global(.dark) .glow {
         background: radial-gradient(
             circle,
-            rgba(255, 232, 170, 0.6) 0%,
-            rgba(255, 210, 120, 0.4) 35%,
-            rgba(255, 195, 95, 0.15) 60%,
-            transparent 75%
+            rgba(255, 232, 170, 0.38) 0%,
+            rgba(255, 210, 120, 0.22) 45%,
+            rgba(255, 195, 95, 0.09) 70%,
+            transparent 85%
         );
         mix-blend-mode: screen;
     }

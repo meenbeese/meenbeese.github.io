@@ -22,19 +22,23 @@
         "contact": "联系我"
     },
     "about": {
-        "description": "我常驻多伦多，主修数学，辅修计算机科学。尤其吸引我的是这两个领域的交集，比如密码学、图论和信息论。我也喜欢把这些理论变成人们真正用得上的东西。除了课程之外，我开发网页应用、参与开源项目，也探索 AI 工具。"
+        "description": "我常驻多伦多，主修数学，辅修计算机科学。尤其吸引我的是这两个领域的交集，比如密码学、图论和信息论。我也喜欢把这些理论变成人们真正用得上的东西。除了课程之外，我开发网页应用、参与开源项目，也探索 AI 工具。 我也有兴趣探索研究机会，并欢迎与研究人员合作。"
     },
     "experience": {
         "frontend": "前端开发",
         "backend": "后端开发",
         "years": "两年以上设计团队经验",
-        "degree": "数学学士和计算机科学学士"
+        "degree": "数学主修 · 计算机辅修"
     },
     "contact": {
         "email": "邮箱",
         "emailMe": "给我发邮件",
         "linkedin": "LinkedIn",
-        "myLinkedin": "我的 LinkedIn"
+        "myLinkedin": "我的 LinkedIn",
+        "copyEmail": "复制邮箱地址",
+        "copyLink": "复制 LinkedIn 链接",
+        "copied": "已复制",
+        "location": "多伦多 (EST) · 通常会在一天内回复"
     },
     "levels": {
         "proficient": "精通",

@@ -22,19 +22,23 @@
         "contact": "Fale comigo"
     },
     "about": {
-        "description": "Estudo Matemática como curso principal e Ciência da Computação como segunda área, e moro em Toronto. O que mais me atrai é a interseção entre elas, como a criptografia, a teoria dos grafos e a teoria da informação. Também gosto de transformar essa teoria em coisas que as pessoas realmente consigam usar. Fora das aulas, desenvolvo aplicações web, contribuo para projetos de código aberto e exploro ferramentas de IA."
+        "description": "Estudo Matemática como curso principal e Ciência da Computação como segunda área, e moro em Toronto. O que mais me atrai é a interseção entre elas, como a criptografia, a teoria dos grafos e a teoria da informação. Também gosto de transformar essa teoria em coisas que as pessoas realmente consigam usar. Fora das aulas, desenvolvo aplicações web, contribuo para projetos de código aberto e exploro ferramentas de IA. Também tenho interesse em explorar oportunidades de pesquisa e estou aberto a colaborações com pesquisadores."
     },
     "experience": {
         "frontend": "Desenvolvimento Frontend",
         "backend": "Desenvolvimento Backend",
         "years": "Mais de 2 anos em equipes de design",
-        "degree": "Bacharelado em Matemática e em Ciência da Computação"
+        "degree": "Matemática (principal) · CC (secundária)"
     },
     "contact": {
         "email": "E-mail",
         "emailMe": "Envie-me um e-mail",
         "linkedin": "LinkedIn",
-        "myLinkedin": "Meu LinkedIn"
+        "myLinkedin": "Meu LinkedIn",
+        "copyEmail": "Copiar e-mail",
+        "copyLink": "Copiar URL do LinkedIn",
+        "copied": "Copiado",
+        "location": "Toronto (EST) · Costumo responder em um dia"
     },
     "levels": {
         "proficient": "Avançado",

@@ -22,19 +22,23 @@
         "contact": "Contact Me"
     },
     "about": {
-        "description": "I'm a Mathematics major with a Computer Science minor, based in Toronto. I'm especially drawn to their overlap, such as cryptography, graph theory, and information theory. I also enjoy turning that theory into things people can actually use. Outside of coursework, I build web apps, contribute to open source, and explore AI tools."
+        "description": "I'm a Mathematics major with a Computer Science minor, based in Toronto. I'm especially drawn to their overlap, such as cryptography, graph theory, and information theory. I also enjoy turning that theory into things people can actually use. Outside of coursework, I build web apps, contribute to open source, and explore AI tools. I am also interested in exploring research opportunities and am open to collaborations with researchers."
     },
     "experience": {
         "frontend": "Frontend Development",
         "backend": "Backend Development",
         "years": "2+ years in Design Teams",
-        "degree": "BSc Math & BSc CS"
+        "degree": "Math Major · CS Minor"
     },
     "contact": {
         "email": "Email",
         "emailMe": "Email Me",
         "linkedin": "LinkedIn",
-        "myLinkedin": "My LinkedIn"
+        "myLinkedin": "My LinkedIn",
+        "copyEmail": "Copy email address",
+        "copyLink": "Copy LinkedIn URL",
+        "copied": "Copied",
+        "location": "Toronto (EST) · I usually reply within a day"
     },
     "levels": {
         "proficient": "Proficient",

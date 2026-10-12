@@ -22,19 +22,23 @@
         "contact": "Contáctame"
     },
     "about": {
-        "description": "Estudio Matemáticas como carrera principal e Informática como secundaria, y vivo en Toronto. Me atrae especialmente su intersección, como la criptografía, la teoría de grafos y la teoría de la información. También disfruto convertir esa teoría en herramientas que la gente pueda usar de verdad. Fuera de las clases, desarrollo aplicaciones web, contribuyo al código abierto y exploro herramientas de IA."
+        "description": "Estudio Matemáticas como carrera principal e Informática como secundaria, y vivo en Toronto. Me atrae especialmente su intersección, como la criptografía, la teoría de grafos y la teoría de la información. También disfruto convertir esa teoría en herramientas que la gente pueda usar de verdad. Fuera de las clases, desarrollo aplicaciones web, contribuyo al código abierto y exploro herramientas de IA. También me interesa explorar oportunidades de investigación y estoy abierto a colaborar con investigadores."
     },
     "experience": {
         "frontend": "Desarrollo Frontend",
         "backend": "Desarrollo Backend",
         "years": "Más de 2 años en equipos de diseño",
-        "degree": "Doble grado en Matemáticas e Informática"
+        "degree": "Matemáticas principal · Informática secundaria"
     },
     "contact": {
         "email": "Correo",
         "emailMe": "Envíame un correo",
         "linkedin": "LinkedIn",
-        "myLinkedin": "Mi LinkedIn"
+        "myLinkedin": "Mi LinkedIn",
+        "copyEmail": "Copiar correo electrónico",
+        "copyLink": "Copiar URL de LinkedIn",
+        "copied": "Copiado",
+        "location": "Toronto (EST) · Suelo responder en un día"
     },
     "levels": {
         "proficient": "Avanzado",

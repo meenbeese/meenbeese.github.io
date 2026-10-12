@@ -22,19 +22,23 @@
         "contact": "Contactez-moi"
     },
     "about": {
-        "description": "J'étudie les mathématiques (majeure) et l'informatique (mineure), et je vis à Toronto. Ce qui me passionne, c'est leur chevauchement, comme la cryptographie, la théorie des graphes et la théorie de l'information. J'aime aussi transformer cette théorie en outils réellement utiles. En dehors de mes cours, je développe des applications web, je contribue à l'open source et j'explore les outils d'IA."
+        "description": "J'étudie les mathématiques (majeure) et l'informatique (mineure), et je vis à Toronto. Ce qui me passionne, c'est leur chevauchement, comme la cryptographie, la théorie des graphes et la théorie de l'information. J'aime aussi transformer cette théorie en outils réellement utiles. En dehors de mes cours, je développe des applications web, je contribue à l'open source et j'explore les outils d'IA. Je souhaite également explorer des opportunités de recherche et je suis ouvert à collaborer avec des chercheurs."
     },
     "experience": {
         "frontend": "Développement Frontend",
         "backend": "Développement Backend",
         "years": "Plus de 2 ans dans des équipes de design",
-        "degree": "BSc en mathématiques et en informatique"
+        "degree": "Maths (majeure) · Info (mineure)"
     },
     "contact": {
         "email": "E-mail",
         "emailMe": "Envoyez-moi un e-mail",
         "linkedin": "LinkedIn",
-        "myLinkedin": "Mon LinkedIn"
+        "myLinkedin": "Mon LinkedIn",
+        "copyEmail": "Copier l’adresse e-mail",
+        "copyLink": "Copier l’URL LinkedIn",
+        "copied": "Copié",
+        "location": "Toronto (EST) · Je réponds généralement en un jour"
     },
     "levels": {
         "proficient": "Maîtrisé",

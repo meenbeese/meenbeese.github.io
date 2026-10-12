@@ -19,11 +19,7 @@ export const languages = [
         icon: '/icons/typescript.svg',
         url: 'https://www.typescriptlang.org/',
     },
-    {
-        name: 'Swift',
-        icon: '/icons/swift.svg',
-        url: 'https://www.swift.org/',
-    },
+    { name: 'Swift', icon: '/icons/swift.svg', url: 'https://www.swift.org/' },
     {
         name: 'Kotlin',
         icon: '/icons/kotlin.svg',
@@ -34,9 +30,5 @@ export const languages = [
         icon: '/icons/rust.svg',
         url: 'https://www.rust-lang.org/',
     },
-    {
-        name: 'Lua',
-        icon: '/icons/lua.svg',
-        url: 'https://www.lua.org/',
-    },
+    { name: 'Lua', icon: '/icons/lua.svg', url: 'https://www.lua.org/' },
 ];
